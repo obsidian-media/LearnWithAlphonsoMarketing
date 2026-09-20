@@ -9,6 +9,12 @@ export default defineConfig({
     globals: true,
     setupFiles: ["./vitest.setup.ts"],
     exclude: ["node_modules/**", "e2e/**"],
+    // This dev machine intermittently fails to start multiple fork workers
+    // (vitest-pool-runner worker-response timeouts) under load; a single
+    // worker is slower but reliable here. (isolate:false was tried for
+    // speed but caused real cross-file DOM pollution -- RTL's cleanup
+    // wasn't enough without per-file isolation -- so it's not used.)
+    fileParallelism: false,
   },
   resolve: {
     alias: { "@": path.resolve(import.meta.dirname, "./") },

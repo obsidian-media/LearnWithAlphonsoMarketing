@@ -6,8 +6,8 @@ import { MascotFloat } from "../shared/MascotFloat";
 
 export function Hero() {
   return (
-    <section className="overflow-hidden bg-cream">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
+    <section className="relative overflow-hidden bg-cream">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:py-24">
         {/* y-only: keeps headline text always fully opaque, see ContentSection. */}
         <motion.div
           initial={{ y: 16 }}
@@ -38,19 +38,27 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-          className="mx-auto w-full max-w-xs"
+          className="relative mx-auto flex w-full max-w-sm items-center justify-center"
         >
-          {/* Mascot cutout wasn't available this build (see Task 2) — the square
-              badge has its own baked-in background, so it's framed in a rounded
-              card with a soft gradient glow behind it instead of floating bare. */}
-          <div className="relative rounded-[2.5rem] bg-gradient-to-br from-coral/15 to-amber/15 p-6">
-            <MascotFloat
-              src="/mascot/alphonso-icon.png"
-              alt="Alphonso the llama, wearing sunglasses and a blue and gold jacket"
-              size={360}
-              className="overflow-hidden rounded-[2rem] shadow-xl"
-            />
-          </div>
+          {/* Decorative glow only (no text) -- safe to animate opacity/scale
+              freely, unlike text-carrying elements elsewhere on the site. */}
+          <motion.div
+            aria-hidden="true"
+            className="absolute -inset-10 -z-10 rounded-full bg-gradient-to-br from-coral/35 via-amber/25 to-transparent blur-3xl"
+            animate={{ scale: [1, 1.12, 1], opacity: [0.7, 1, 0.7] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            aria-hidden="true"
+            className="absolute -inset-6 -z-10 rounded-full bg-gradient-to-tl from-royal/15 to-transparent blur-2xl"
+            animate={{ scale: [1.08, 1, 1.08] }}
+            transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+          />
+          <MascotFloat
+            src="/mascot/alphonso-cutout.png"
+            alt="Alphonso the llama, wearing sunglasses and a blue and gold jacket"
+            size={420}
+          />
         </motion.div>
       </div>
     </section>

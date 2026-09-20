@@ -22,7 +22,7 @@ export function ContentSection({
   children,
 }: ContentSectionProps) {
   return (
-    <section className={tone === "royal" ? "bg-royal py-20" : "bg-cream py-20"}>
+    <section className={tone === "royal" ? "bg-royal py-16" : "bg-cream py-16"}>
       <div className="mx-auto max-w-5xl px-6">
         {/* y-only: text must never rest at partial opacity — an axe/assistive-tech
             snapshot mid-fade (or before whileInView has fired at all) reads as a

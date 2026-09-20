@@ -23,11 +23,17 @@ export function FeatureGrid({ items, headingLevel = "h3" }: FeatureGridProps) {
         <motion.li
           key={item.title}
           variants={{ hidden: { y: 12 }, show: { y: 0 } }}
-          className="rounded-3xl border border-ink/8 bg-white p-6"
+          whileHover={{ y: -4 }}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+          className="rounded-3xl border border-ink/8 bg-white p-6 shadow-[0_1px_0_0_rgba(32,26,23,0.04)] transition-shadow hover:shadow-lg"
         >
-          <div className="grid size-11 place-items-center rounded-2xl bg-gradient-to-br from-coral to-amber text-white">
+          <motion.div
+            whileHover={{ rotate: [0, -8, 8, 0] }}
+            transition={{ duration: 0.4 }}
+            className="grid size-11 place-items-center rounded-2xl bg-gradient-to-br from-coral to-amber text-white"
+          >
             {item.icon}
-          </div>
+          </motion.div>
           <CardHeading className="mt-4 font-display text-lg font-semibold text-ink">
             {item.title}
           </CardHeading>
