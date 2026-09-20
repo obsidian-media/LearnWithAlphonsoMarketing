@@ -7,7 +7,9 @@ describe("Features page", () => {
     render(<FeaturesPage />);
     // Section titles (h2) echo some of the same words as their feature cards
     // (h3), so these check the cards specifically to avoid an ambiguous match.
-    expect(screen.getByRole("heading", { name: /cefr/i, level: 3 })).toBeInTheDocument();
+    // This card sits directly under the page's h1 (Curriculum section), so it
+    // renders as h2, not the usual h3 -- see FeatureGrid's headingLevel prop.
+    expect(screen.getByRole("heading", { name: /cefr/i, level: 2 })).toBeInTheDocument();
     expect(
       screen.getByRole("heading", { name: "AI conversation practice", level: 3 }),
     ).toBeInTheDocument();

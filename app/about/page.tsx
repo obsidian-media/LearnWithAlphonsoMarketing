@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <main>
-      <ContentSection eyebrow="Our story" title="Meet Alphonso">
+      <ContentSection eyebrow="Our story" title="Meet Alphonso" level="h1">
         <div className="flex flex-col items-start gap-8 sm:flex-row sm:items-center">
           <Image
             src="/mascot/alphonso-icon.png"

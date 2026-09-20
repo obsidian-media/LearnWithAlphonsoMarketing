@@ -54,7 +54,7 @@ export function Footer() {
             </ul>
           </div>
         </div>
-        <p className="mt-10 text-xs text-ink-soft/70">
+        <p className="mt-10 text-xs text-ink-soft">
           © {new Date().getFullYear()} Obsidian Media. All rights reserved.
         </p>
       </div>

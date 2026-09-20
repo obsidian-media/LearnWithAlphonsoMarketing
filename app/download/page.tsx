@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function DownloadPage() {
   return (
     <main>
-      <ContentSection eyebrow="Get started" title="Learn on the web today">
+      <ContentSection eyebrow="Get started" title="Learn on the web today" level="h1">
         <p className="max-w-xl text-ink-soft">
           The web app works on any device, right now, free — no download needed.
         </p>

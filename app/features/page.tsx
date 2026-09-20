@@ -74,8 +74,11 @@ const SOCIAL = [
 export default function FeaturesPage() {
   return (
     <main>
-      <ContentSection eyebrow="Curriculum" title="A real CEFR-leveled curriculum, not a gimmick">
-        <FeatureGrid items={CURRICULUM} />
+      <ContentSection eyebrow="Curriculum" title="A real CEFR-leveled curriculum, not a gimmick" level="h1">
+        {/* Cards are h2 here, not the FeatureGrid default h3 -- this section's
+            own title is h1, so its direct children must be h2 to avoid
+            skipping a level (axe's heading-order rule). */}
+        <FeatureGrid items={CURRICULUM} headingLevel="h2" />
       </ContentSection>
       <ContentSection eyebrow="Practice" title="AI conversation practice and spaced repetition" tone="royal">
         <FeatureGrid items={PRACTICE} />

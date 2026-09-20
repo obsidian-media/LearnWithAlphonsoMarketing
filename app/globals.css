@@ -5,6 +5,11 @@
   --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
 
   --color-coral: #ff6b4a;
+  /* Small/bold text (eyebrow labels) fails WCAG AA at the vivid --color-coral
+     on --color-cream (2.67:1, needs 4.5:1) -- this darker shade is for that
+     use only; the vivid coral stays for large surfaces (buttons, gradients,
+     icon fills) where text-contrast rules don't apply the same way. */
+  --color-coral-deep: #b5451f;
   --color-amber: #ffb238;
   --color-royal: #1e3a6e;
   --color-royal-deep: #12253f;

@@ -18,10 +18,11 @@ const FREE_FEATURES = [
 export default function PricingPage() {
   return (
     <main>
-      <ContentSection eyebrow="Pricing" title="Free to learn. Always.">
+      <ContentSection eyebrow="Pricing" title="Free to learn. Always." level="h1">
         <div className="grid gap-6 lg:grid-cols-2">
           <div className="rounded-3xl border border-ink/8 bg-white p-8">
-            <h3 className="font-display text-2xl font-semibold text-ink">Free</h3>
+            {/* h2, not h3 -- these cards sit directly under this page's h1. */}
+            <h2 className="font-display text-2xl font-semibold text-ink">Free</h2>
             <p className="mt-1 text-3xl font-semibold text-ink">$0</p>
             <ul className="mt-6 space-y-3 text-sm text-ink-soft">
               {FREE_FEATURES.map((feature) => (
@@ -42,7 +43,7 @@ export default function PricingPage() {
             <span className="absolute right-6 top-6 rounded-full bg-amber px-3 py-1 text-xs font-bold uppercase tracking-wide text-royal-deep">
               Coming soon
             </span>
-            <h3 className="font-display text-2xl font-semibold">Hector Pro</h3>
+            <h2 className="font-display text-2xl font-semibold">Hector Pro</h2>
             <p className="mt-1 text-3xl font-semibold">$9.99/mo</p>
             <p className="mt-6 flex items-start gap-2 text-sm text-white/80">
               <MicIcon className="mt-0.5 size-4 shrink-0 text-amber" />
