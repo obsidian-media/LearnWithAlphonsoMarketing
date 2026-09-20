@@ -22,6 +22,23 @@ export const metadata: Metadata = {
   },
   description:
     "Bite-size English and French lessons, AI conversation practice, and gamified streaks — with Alphonso the llama as your guide.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
+  },
+  manifest: "/site.webmanifest",
+  openGraph: {
+    title: "Learn with Alphonso — English that actually sticks",
+    description:
+      "Bite-size English and French lessons, AI conversation practice, and gamified streaks.",
+    images: ["/og-image.png"],
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
