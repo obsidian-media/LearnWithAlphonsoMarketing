@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-sans: var(--font-nunito), ui-sans-serif, system-ui, sans-serif;
+
+  --color-coral: #ff6b4a;
+  --color-amber: #ffb238;
+  --color-royal: #1e3a6e;
+  --color-royal-deep: #12253f;
+  --color-gold: #d4a017;
+  --color-cream: #fff8f0;
+  --color-ink: #201a17;
+  --color-ink-soft: #6b5f58;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
