@@ -1,0 +1,17 @@
+import { render, screen } from "@testing-library/react";
+import { describe, it, expect } from "vitest";
+import FeaturesPage from "./page";
+
+describe("Features page", () => {
+  it("covers curriculum, AI conversation, spaced repetition, gamification, social, and themes", () => {
+    render(<FeaturesPage />);
+    // Section titles (h2) echo some of the same words as their feature cards
+    // (h3), so these check the cards specifically to avoid an ambiguous match.
+    expect(screen.getByRole("heading", { name: /cefr/i, level: 3 })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "AI conversation practice", level: 3 }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /spaced repetition/i, level: 3 })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Gamification", level: 3 })).toBeInTheDocument();
+  });
+});
