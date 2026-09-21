@@ -20,18 +20,29 @@ const TILTS = ["-1.5deg", "1deg", "-1deg", "1.5deg", "-1.2deg", "1.2deg"];
 
 export function FeatureGrid({ items, headingLevel = "h3", tone = "cream" }: FeatureGridProps) {
   const CardHeading = headingLevel;
+  const hasFeatured = tone === "cream";
+  // Every card the same size in a uniform 3-equal-column row is one of the
+  // most recognizable "generic AI landing page" tells. Instead: the first
+  // (cream-tone) card spans the full row as a wide intro banner, the rest
+  // pair up two-per-row -- and if that leaves one item stranded alone at the
+  // end, it widens to a full row too rather than sitting next to an empty
+  // cell. Works cleanly whatever the item count (2, 3, or 4) actually is.
+  const remainingCount = hasFeatured ? items.length - 1 : items.length;
+  const trailingOrphanIndex = remainingCount % 2 === 1 ? items.length - 1 : -1;
+
   return (
     <motion.ul
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-60px" }}
       variants={{ hidden: {}, show: { transition: { staggerChildren: 0.08 } } }}
-      className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+      className="grid grid-cols-1 gap-6 sm:grid-cols-2"
     >
       {/* y-only, same reasoning as ContentSection: card text must never rest at
           partial opacity. */}
       {items.map((item, index) => {
-        const featured = index === 0 && tone === "cream";
+        const featured = hasFeatured && index === 0;
+        const spansFullRow = featured || index === trailingOrphanIndex;
         const tilt = TILTS[index % TILTS.length];
         return (
           <motion.li
@@ -40,31 +51,33 @@ export function FeatureGrid({ items, headingLevel = "h3", tone = "cream" }: Feat
             initial={{ rotate: tilt }}
             whileHover={{ y: -6, rotate: "0deg" }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className={
+            className={`${spansFullRow ? "sm:col-span-2" : ""} ${
               featured
-                ? "rounded-3xl bg-royal p-6 text-white shadow-[0_4px_0_0_rgba(18,37,63,0.25)]"
+                ? "rounded-3xl bg-royal p-6 text-white shadow-[0_4px_0_0_rgba(18,37,63,0.25)] sm:flex sm:items-center sm:gap-6"
                 : "rounded-3xl border border-ink/8 bg-white p-6 shadow-[0_1px_0_0_rgba(32,26,23,0.04)] transition-shadow hover:shadow-lg"
-            }
+            }`}
           >
             <motion.div
               whileHover={{ rotate: [0, -8, 8, 0] }}
               transition={{ duration: 0.4 }}
               className={
                 featured
-                  ? "grid size-12 place-items-center rounded-2xl bg-gradient-to-br from-amber to-coral text-white"
+                  ? "grid size-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-amber to-coral text-white"
                   : "grid size-11 place-items-center rounded-2xl bg-gradient-to-br from-coral to-amber text-white"
               }
             >
               {item.icon}
             </motion.div>
-            <CardHeading
-              className={`mt-4 font-display text-lg font-semibold ${featured ? "text-white" : "text-ink"}`}
-            >
-              {item.title}
-            </CardHeading>
-            <p className={`mt-1 text-sm ${featured ? "text-white/80" : "text-ink-soft"}`}>
-              {item.description}
-            </p>
+            <div className={featured ? "mt-4 sm:mt-0" : undefined}>
+              <CardHeading
+                className={`font-display text-lg font-semibold ${featured ? "text-white" : "mt-4 text-ink"}`}
+              >
+                {item.title}
+              </CardHeading>
+              <p className={`mt-1 text-sm ${featured ? "text-white/80" : "text-ink-soft"}`}>
+                {item.description}
+              </p>
+            </div>
           </motion.li>
         );
       })}
