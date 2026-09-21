@@ -2,7 +2,7 @@ import { AnimatedCounter } from "../shared/AnimatedCounter";
 
 const STATS = [
   { value: 534, unit: "English lessons" },
-  { value: 125, unit: "French lessons" },
+  { value: 500, unit: "French lessons" },
   { value: 5, unit: "CEFR levels, A1–C1" },
 ];
 

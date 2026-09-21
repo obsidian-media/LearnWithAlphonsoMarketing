@@ -6,7 +6,7 @@ describe("StatsBand", () => {
   it("shows the real content counts", () => {
     render(<StatsBand />);
     expect(screen.getByText("534")).toBeInTheDocument();
-    expect(screen.getByText("125")).toBeInTheDocument();
+    expect(screen.getByText("500")).toBeInTheDocument();
     expect(screen.getByText("5")).toBeInTheDocument();
   });
 });

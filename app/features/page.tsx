@@ -11,6 +11,7 @@ import {
   TrophyIcon,
   UsersIcon,
   PaletteIcon,
+  HeartIcon,
 } from "@/components/shared/icons";
 
 export const metadata: Metadata = {
@@ -26,9 +27,16 @@ const CURRICULUM = [
     icon: <BookIcon className="size-5" />,
   },
   {
-    title: "Two courses",
-    description: "534 English lessons and 125 French lessons, both real, complete courses.",
+    title: "Two full courses",
+    description:
+      "534 English lessons and 500 French lessons — near-parity, not a thin afterthought.",
     icon: <BookIcon className="size-5" />,
+  },
+  {
+    title: "5 question formats",
+    description:
+      "Multiple choice, fill-in-the-blank, image matching, listening, and sentence reordering.",
+    icon: <PaletteIcon className="size-5" />,
   },
   {
     title: "Adaptive placement",
@@ -40,7 +48,8 @@ const CURRICULUM = [
 const PRACTICE = [
   {
     title: "AI conversation practice",
-    description: "Voice-enabled roleplay across 6 real-world scenarios.",
+    description:
+      "12 roleplay scenarios by voice or text, with clarity feedback on your spoken answers and difficulty that adapts to your CEFR level.",
     icon: <MicIcon className="size-5" />,
   },
   {
@@ -48,6 +57,18 @@ const PRACTICE = [
     description:
       "An SM-2-style queue resurfaces exactly what you got wrong, on a schedule built to make it stick.",
     icon: <BookIcon className="size-5" />,
+  },
+  {
+    title: "In-lesson reinforcement",
+    description:
+      "Miss a question and a quick extra practice question on the same concept shows up right there — not just later in review.",
+    icon: <HeartIcon className="size-5" />,
+  },
+  {
+    title: "Weakness tracking",
+    description:
+      "See exactly what you're still working on versus what you've mastered, tracked automatically from lessons and conversations.",
+    icon: <TrophyIcon className="size-5" />,
   },
 ];
 
@@ -71,6 +92,21 @@ const SOCIAL = [
     title: "Themes",
     description: "Meadow, Studio Ink, or Manuscript — pick the look that fits you.",
     icon: <PaletteIcon className="size-5" />,
+  },
+];
+
+const DIFFERENTIATORS = [
+  {
+    title: "Bite-size, not marathon",
+    description: "5-minute reps designed to fit into an actual day, not a study session.",
+  },
+  {
+    title: "Real conversation, not just flashcards",
+    description: "Voice or text roleplay with a language partner that adapts to you.",
+  },
+  {
+    title: "It knows what you're stuck on",
+    description: "Weakness tracking feeds review automatically — you don't have to notice it yourself.",
   },
 ];
 
@@ -102,6 +138,16 @@ export default function FeaturesPage() {
         visual={<GamificationMockup />}
       >
         <FeatureGrid items={SOCIAL} />
+      </ContentSection>
+      <ContentSection eyebrow="Why Alphonso" title="Not another flashcard app">
+        <div className="grid gap-8 sm:grid-cols-3">
+          {DIFFERENTIATORS.map((item) => (
+            <div key={item.title}>
+              <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
+              <p className="mt-1 text-sm text-ink-soft">{item.description}</p>
+            </div>
+          ))}
+        </div>
       </ContentSection>
     </main>
   );

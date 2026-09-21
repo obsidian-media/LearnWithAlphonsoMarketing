@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 const FREE_FEATURES = [
   "Full English and French curriculum, all 5 CEFR levels",
   "Spaced repetition review queue",
-  "AI conversation practice (6 scenarios)",
+  "AI conversation practice (12 scenarios, adaptive to your level)",
   "Streaks, hearts, leagues, and achievements",
 ];
 
