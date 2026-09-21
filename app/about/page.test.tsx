@@ -8,4 +8,10 @@ describe("About page", () => {
     expect(screen.getByRole("heading", { name: /alphonso/i })).toBeInTheDocument();
     expect(screen.getByText(/obsidian media/i)).toBeInTheDocument();
   });
+
+  it("shows the product values grid, not just the hero paragraph", () => {
+    render(<AboutPage />);
+    expect(screen.getByText("Small, honest reps")).toBeInTheDocument();
+    expect(screen.getByText("Real conversations, not flashcards")).toBeInTheDocument();
+  });
 });

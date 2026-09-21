@@ -1,33 +1,26 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useInView, animate } from "framer-motion";
+import { motion } from "framer-motion";
 
 type AnimatedCounterProps = { value: number; unit?: string; tone?: "ink" | "white" };
 
+// Previously counted up from 0 over 1.1s on scroll-into-view. Dropped that:
+// a fullPage screenshot (and, by the same logic, a real visitor scrolling at
+// normal speed) kept catching it still at "0" -- a count-up animation
+// shouldn't have a state where the number is wrong. This always renders the
+// real value; the y-only entrance (same safe pattern as every other
+// text-carrying element on the site -- see ContentSection) still gives it
+// some life without ever being incorrect mid-transition.
 export function AnimatedCounter({ value, unit, tone = "ink" }: AnimatedCounterProps) {
-  const ref = useRef<HTMLSpanElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-40px" });
-  const [display, setDisplay] = useState(0);
-
-  useEffect(() => {
-    if (!isInView) return;
-    const controls = animate(0, value, {
-      duration: 1.1,
-      ease: [0.16, 1, 0.3, 1],
-      onUpdate: (latest) => setDisplay(Math.round(latest)),
-    });
-    return () => controls.stop();
-  }, [isInView, value]);
-
   return (
-    <span
-      ref={ref}
+    <motion.span
+      initial={{ y: 12 }}
+      whileInView={{ y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`inline-flex items-baseline gap-2 font-display text-4xl font-semibold sm:text-5xl ${tone === "white" ? "text-white" : "text-ink"}`}
     >
-      {/* Decorative count-up — screen readers get the real value below instead of waiting on it. */}
-      <span aria-hidden="true">{display.toLocaleString()}</span>
-      <span className="sr-only">{value.toLocaleString()}</span>
+      <span>{value.toLocaleString()}</span>
       {unit && (
         <span
           className={`text-base font-sans font-semibold ${tone === "white" ? "text-white/80" : "text-ink-soft"}`}
@@ -35,6 +28,6 @@ export function AnimatedCounter({ value, unit, tone = "ink" }: AnimatedCounterPr
           {unit}
         </span>
       )}
-    </span>
+    </motion.span>
   );
 }

@@ -4,6 +4,8 @@ import { getDb } from "@/db";
 import { waitlistSignups } from "@/db/schema";
 import { ContentSection } from "@/components/shared/ContentSection";
 import { CTAButton } from "@/components/shared/CTAButton";
+import { LessonMockup } from "@/components/shared/LessonMockup";
+import { GamificationMockup } from "@/components/shared/GamificationMockup";
 import { WaitlistForm } from "@/components/download/WaitlistForm";
 import { WaitlistCount } from "@/components/download/WaitlistCount";
 
@@ -34,7 +36,12 @@ export default async function DownloadPage() {
 
   return (
     <main>
-      <ContentSection eyebrow="Get started" title="Learn on the web today" level="h1">
+      <ContentSection
+        eyebrow="Get started"
+        title="Learn on the web today"
+        level="h1"
+        visual={<LessonMockup />}
+      >
         <p className="max-w-xl text-ink-soft">
           The web app works on any device, right now, free — no download needed.
         </p>
@@ -45,7 +52,12 @@ export default async function DownloadPage() {
         </div>
       </ContentSection>
 
-      <ContentSection eyebrow="Coming soon" title="Get notified when iOS launches" tone="royal">
+      <ContentSection
+        eyebrow="Coming soon"
+        title="Get notified when iOS launches"
+        tone="royal"
+        visual={<GamificationMockup />}
+      >
         <div className="max-w-md">
           <WaitlistForm />
           <div className="mt-4">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { ContentSection } from "@/components/shared/ContentSection";
 import { CTAButton } from "@/components/shared/CTAButton";
-import { HeartIcon, MicIcon } from "@/components/shared/icons";
+import { HeartIcon, MicIcon, BookIcon, TrophyIcon } from "@/components/shared/icons";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -13,6 +13,15 @@ const FREE_FEATURES = [
   "Spaced repetition review queue",
   "AI conversation practice (12 scenarios, adaptive to your level)",
   "Streaks, hearts, leagues, and achievements",
+];
+
+// Real, shipped specifics (confirmed in the app's own CHANGELOG), not
+// invented -- Hector's persona-memory feature is genuinely built even
+// though the tier itself isn't purchasable yet.
+const HECTOR_FEATURES = [
+  { icon: MicIcon, text: "A dedicated second AI conversation mode, with its own voice backend" },
+  { icon: BookIcon, text: "Remembers your CEFR level and what you're working on between sessions" },
+  { icon: TrophyIcon, text: "Priority access the moment it's purchasable" },
 ];
 
 export default function PricingPage() {
@@ -45,10 +54,16 @@ export default function PricingPage() {
             </span>
             <h2 className="font-display text-2xl font-semibold">Hector Pro</h2>
             <p className="mt-1 text-3xl font-semibold">$9.99/mo</p>
-            <p className="mt-6 flex items-start gap-2 text-sm text-white/80">
-              <MicIcon className="mt-0.5 size-4 shrink-0 text-amber" />
-              A second AI conversation mode, Hector, for even more speaking practice. Not
-              purchasable yet — we&apos;ll announce it here first.
+            <ul className="mt-6 space-y-3 text-sm text-white/80">
+              {HECTOR_FEATURES.map(({ icon: Icon, text }) => (
+                <li key={text} className="flex items-start gap-2">
+                  <Icon className="mt-0.5 size-4 shrink-0 text-amber" />
+                  {text}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-xs text-white/60">
+              Not purchasable yet — we&apos;ll announce it here first.
             </p>
           </div>
         </div>
