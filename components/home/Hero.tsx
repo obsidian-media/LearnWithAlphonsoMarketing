@@ -15,7 +15,7 @@ export function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-coral-deep">
-            English &amp; French, one lesson at a time
+            English, French &amp; Spanish, one lesson at a time
           </p>
           <h1 className="mt-3 text-balance font-display text-5xl font-semibold leading-[1.05] text-ink sm:text-6xl">
             Learn a language with lessons that actually stick.

@@ -1,8 +1,13 @@
 import { AnimatedCounter } from "../shared/AnimatedCounter";
 
+// Per-course stats (534 English / 500 French / 125 Spanish) would need a
+// new line here every time a course grows or a new one ships -- rolling up
+// to total lessons + language count scales without a rewrite, and stays
+// honest without implying Spanish (125 lessons, launched 2026-09-21) has
+// the same depth as English/French yet.
 const STATS = [
-  { value: 534, unit: "English lessons" },
-  { value: 500, unit: "French lessons" },
+  { value: 1159, unit: "total lessons" },
+  { value: 3, unit: "languages" },
   { value: 5, unit: "CEFR levels, A1–C1" },
 ];
 

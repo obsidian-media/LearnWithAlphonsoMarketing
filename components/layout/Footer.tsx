@@ -10,7 +10,7 @@ export function Footer() {
           <div>
             <p className="font-display text-lg font-semibold text-ink">Alphonso</p>
             <p className="mt-2 max-w-xs text-sm text-ink-soft">
-              English and French, one bite-size lesson at a time. Built by Obsidian Media.
+              English, French, and Spanish, one bite-size lesson at a time. Built by Obsidian Media.
             </p>
           </div>
           <div>

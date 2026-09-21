@@ -27,9 +27,9 @@ const CURRICULUM = [
     icon: <BookIcon className="size-5" />,
   },
   {
-    title: "Two full courses",
+    title: "Three courses",
     description:
-      "534 English lessons and 500 French lessons — near-parity, not a thin afterthought.",
+      "534 English lessons, 500 French lessons, and a newly-launched 125-lesson Spanish course — growing the same way French did.",
     icon: <BookIcon className="size-5" />,
   },
   {

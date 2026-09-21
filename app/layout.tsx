@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     template: "%s — Learn with Alphonso",
   },
   description:
-    "Bite-size English and French lessons, AI conversation practice, and gamified streaks — with Alphonso the llama as your guide.",
+    "Bite-size English, French, and Spanish lessons, AI conversation practice, and gamified streaks — with Alphonso the llama as your guide.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Learn with Alphonso — English that actually sticks",
     description:
-      "Bite-size English and French lessons, AI conversation practice, and gamified streaks.",
+      "Bite-size English, French, and Spanish lessons, AI conversation practice, and gamified streaks.",
     images: ["/og-image.png"],
     type: "website",
   },

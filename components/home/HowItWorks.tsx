@@ -10,7 +10,7 @@ const STEPS = [
   },
   {
     title: "Learn in bite-size lessons",
-    description: "5-minute reps across 534 English or 500 French lessons, A1 through C1.",
+    description: "5-minute reps in English, French, or the newly-launched Spanish course, A1 through C1.",
     icon: <BookIcon className="size-5" />,
   },
   {
