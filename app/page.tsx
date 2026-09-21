@@ -1,13 +1,27 @@
 import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
+import { LessonDemo } from "@/components/home/LessonDemo";
 import { StatsBand } from "@/components/home/StatsBand";
 import { ThemesTeaser } from "@/components/home/ThemesTeaser";
 import { CTAButton } from "@/components/shared/CTAButton";
+import { SectionHeading } from "@/components/shared/SectionHeading";
 
 export default function Home() {
   return (
     <main>
       <Hero />
+      <section className="bg-cream py-16">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <SectionHeading
+            eyebrow="No sign-up needed"
+            title="This is an actual question from the course"
+            description="Not a screenshot -- a real multiple-choice item, same format as the app. Give it a try."
+          />
+        </div>
+        <div className="mt-10 px-6">
+          <LessonDemo />
+        </div>
+      </section>
       <HowItWorks />
       <StatsBand />
       <ThemesTeaser />
