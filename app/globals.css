@@ -24,7 +24,25 @@ html {
 }
 
 body {
+  position: relative;
   background-color: var(--color-cream);
   color: var(--color-ink);
   font-family: var(--font-sans);
+}
+
+/* Tactile grain -- flat color blocks were the single biggest reason the site
+   read as a generic template rather than something with a real hand-built
+   identity. Fixed + very low opacity so it never interferes with text
+   contrast, but adds texture everywhere including inside solid-color
+   sections (royal/coral blocks), where a background-image on body alone
+   would be covered up. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }

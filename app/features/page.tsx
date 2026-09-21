@@ -81,7 +81,7 @@ export default function FeaturesPage() {
         <FeatureGrid items={CURRICULUM} headingLevel="h2" />
       </ContentSection>
       <ContentSection eyebrow="Practice" title="AI conversation practice and spaced repetition" tone="royal">
-        <FeatureGrid items={PRACTICE} />
+        <FeatureGrid items={PRACTICE} tone="royal" />
       </ContentSection>
       <ContentSection eyebrow="Stay motivated" title="Gamification that respects your time">
         <FeatureGrid items={SOCIAL} />
