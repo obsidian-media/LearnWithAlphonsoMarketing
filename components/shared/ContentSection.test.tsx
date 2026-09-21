@@ -12,4 +12,13 @@ describe("ContentSection", () => {
     expect(screen.getByRole("heading", { name: "Spaced repetition" })).toBeInTheDocument();
     expect(screen.getByText("Body content")).toBeInTheDocument();
   });
+
+  it("renders an optional visual alongside the content", () => {
+    render(
+      <ContentSection title="AI conversation practice" visual={<p>Mockup content</p>}>
+        <p>Body content</p>
+      </ContentSection>,
+    );
+    expect(screen.getByText("Mockup content")).toBeInTheDocument();
+  });
 });
