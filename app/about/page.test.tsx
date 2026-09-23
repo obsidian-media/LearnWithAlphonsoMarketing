@@ -14,4 +14,10 @@ describe("About page", () => {
     expect(screen.getByText("Small, honest reps")).toBeInTheDocument();
     expect(screen.getByText("Real conversations, not flashcards")).toBeInTheDocument();
   });
+
+  it("introduces Hector as the Pro AI tutor, separately from Alphonso", () => {
+    render(<AboutPage />);
+    expect(screen.getByRole("heading", { name: /hector/i })).toBeInTheDocument();
+    expect(screen.getByAltText(/hector/i)).toBeInTheDocument();
+  });
 });

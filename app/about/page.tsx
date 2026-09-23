@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
 import { ContentSection } from "@/components/shared/ContentSection";
 import { FeatureGrid, type FeatureItem } from "@/components/shared/FeatureGrid";
 import { ConversationMockup } from "@/components/shared/ConversationMockup";
+import { MascotPortraitCard } from "@/components/shared/MascotPortraitCard";
 import { FlameIcon, MicIcon, TrophyIcon, BookIcon } from "@/components/shared/icons";
 
 export const metadata: Metadata = {
@@ -62,6 +64,29 @@ export default function AboutPage() {
             <strong className="text-ink">Obsidian Media</strong> around that idea: bite-size
             lessons, real spaced repetition, and gamification that respects your time instead of
             manipulating it.
+          </p>
+        </div>
+      </ContentSection>
+
+      <ContentSection eyebrow="Meet the cast" title="And then there's Hector">
+        <div className="flex flex-col items-start gap-8 sm:flex-row sm:items-center">
+          <div className="w-[200px] shrink-0">
+            <MascotPortraitCard
+              src="/mascot/hector-portrait.png"
+              alt="Hector, wearing AR goggles, in a grand library"
+              name="Hector"
+              tagline="The Pro AI tutor"
+            />
+          </div>
+          <p className="max-w-xl text-ink-soft">
+            Where Alphonso keeps you moving through lessons, Hector is the deep-focus tutor mode:
+            a second AI conversation partner who remembers your CEFR level and what you&apos;re
+            working on between sessions. He&apos;s part of{" "}
+            <strong className="text-ink">Hector Pro</strong>, not purchasable yet — see{" "}
+            <Link href="/pricing" className="underline hover:text-coral">
+              Pricing
+            </Link>{" "}
+            for details.
           </p>
         </div>
       </ContentSection>
