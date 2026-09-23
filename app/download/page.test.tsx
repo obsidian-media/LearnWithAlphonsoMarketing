@@ -28,4 +28,11 @@ describe("Download page", () => {
     render(await DownloadPage());
     expect(screen.getByText(/3 people already waiting/i)).toBeInTheDocument();
   });
+
+  it("offers a direct TestFlight beta join link alongside the waitlist", async () => {
+    render(await DownloadPage());
+    const testflightLink = screen.getByRole("link", { name: /join the testflight beta/i });
+    expect(testflightLink).toHaveAttribute("href", "https://testflight.apple.com/join/awk9cvNQ");
+    expect(testflightLink).toHaveAttribute("target", "_blank");
+  });
 });

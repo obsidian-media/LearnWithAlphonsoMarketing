@@ -11,7 +11,7 @@ import { WaitlistCount } from "@/components/download/WaitlistCount";
 
 export const metadata: Metadata = {
   title: "Download",
-  description: "Start learning on the web today, or join the waitlist for iOS.",
+  description: "Start learning on the web today, or join the iOS TestFlight beta.",
 };
 
 // Without this, Next.js would statically prerender this page once at build
@@ -53,15 +53,30 @@ export default async function DownloadPage() {
       </ContentSection>
 
       <ContentSection
-        eyebrow="Coming soon"
-        title="Get notified when iOS launches"
+        eyebrow="In TestFlight beta"
+        title="Try iOS now, or get notified at launch"
         tone="royal"
         visual={<GamificationMockup />}
       >
         <div className="max-w-md">
-          <WaitlistForm />
-          <div className="mt-4">
-            <WaitlistCount count={waitlistCount} />
+          <p className="text-sm text-white/80">
+            Learn with Alphonso is in TestFlight beta on iOS right now. Join with the link below,
+            or leave your email and we&apos;ll let you know when it&apos;s out of beta.
+          </p>
+          <div className="mt-5">
+            <CTAButton
+              href="https://testflight.apple.com/join/awk9cvNQ"
+              external
+              variant="secondary-inverted"
+            >
+              Join the TestFlight beta
+            </CTAButton>
+          </div>
+          <div className="mt-6">
+            <WaitlistForm />
+            <div className="mt-4">
+              <WaitlistCount count={waitlistCount} />
+            </div>
           </div>
         </div>
       </ContentSection>
