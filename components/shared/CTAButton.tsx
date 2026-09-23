@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 type CTAButtonProps = {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "secondary-inverted";
   external?: boolean;
   className?: string;
 };
@@ -21,7 +21,9 @@ export function CTAButton({
   const styles =
     variant === "primary"
       ? "bg-gradient-to-r from-coral to-amber text-white shadow-sm hover:shadow-md hover:opacity-95"
-      : "border border-ink/15 text-ink hover:bg-ink/5";
+      : variant === "secondary-inverted"
+        ? "border border-white/30 text-white hover:bg-white/10"
+        : "border border-ink/15 text-ink hover:bg-ink/5";
 
   const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
 

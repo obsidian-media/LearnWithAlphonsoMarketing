@@ -28,4 +28,15 @@ describe("CTAButton", () => {
     );
     expect(screen.getByRole("link", { name: /notify me/i }).className).toContain("border");
   });
+
+  it("applies inverted secondary styling for use on dark backgrounds", () => {
+    render(
+      <CTAButton href="https://testflight.apple.com/join/example" variant="secondary-inverted" external>
+        Join the beta
+      </CTAButton>,
+    );
+    const link = screen.getByRole("link", { name: /join the beta/i });
+    expect(link.className).toContain("text-white");
+    expect(link.className).toContain("border-white/30");
+  });
 });
