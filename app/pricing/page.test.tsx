@@ -10,4 +10,9 @@ describe("Pricing page", () => {
     expect(screen.getByText(/coming soon/i)).toBeInTheDocument();
     expect(screen.queryByRole("button", { name: /subscribe|buy|purchase/i })).not.toBeInTheDocument();
   });
+
+  it("shows Hector's portrait on the Pro card", () => {
+    render(<PricingPage />);
+    expect(screen.getByAltText(/hector/i)).toBeInTheDocument();
+  });
 });

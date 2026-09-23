@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ContentSection } from "@/components/shared/ContentSection";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { HeartIcon, MicIcon, BookIcon, TrophyIcon } from "@/components/shared/icons";
+import { MascotPortraitCard } from "@/components/shared/MascotPortraitCard";
 
 export const metadata: Metadata = {
   title: "Pricing",
@@ -52,6 +53,15 @@ export default function PricingPage() {
             <span className="absolute right-6 top-6 rounded-full bg-amber px-3 py-1 text-xs font-bold uppercase tracking-wide text-royal-deep">
               Coming soon
             </span>
+            <div className="mb-6 w-40">
+              <MascotPortraitCard
+                src="/mascot/hector-portrait.png"
+                alt="Hector, the Pro AI tutor, wearing AR goggles in a grand library"
+                name="Hector"
+                tagline="Your Pro AI tutor"
+                tone="royal"
+              />
+            </div>
             <h2 className="font-display text-2xl font-semibold">Hector Pro</h2>
             <p className="mt-1 text-3xl font-semibold">$9.99/mo</p>
             <ul className="mt-6 space-y-3 text-sm text-white/80">
