@@ -15,6 +15,9 @@ type ContentSectionProps = {
    * instead of below them -- the site was otherwise wall-to-wall text with
    * no visual representation of the actual product. */
   visual?: ReactNode;
+  /** Lets another page deep-link straight to this section (e.g. the home
+   * page's Compete teaser links to /features#compete). */
+  id?: string;
 };
 
 export function ContentSection({
@@ -25,9 +28,11 @@ export function ContentSection({
   level = "h2",
   children,
   visual,
+  id,
 }: ContentSectionProps) {
   return (
     <section
+      id={id}
       className={tone === "royal" ? "bg-royal py-24" : "bg-cream py-16"}
       style={
         // A flat-rectangle color block reads as the most generic possible

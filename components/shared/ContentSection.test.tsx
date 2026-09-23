@@ -21,4 +21,9 @@ describe("ContentSection", () => {
     );
     expect(screen.getByText("Mockup content")).toBeInTheDocument();
   });
+
+  it("applies an id when given one, for deep-linking", () => {
+    const { container } = render(<ContentSection title="Compete" id="compete" />);
+    expect(container.querySelector("section#compete")).toBeInTheDocument();
+  });
 });
