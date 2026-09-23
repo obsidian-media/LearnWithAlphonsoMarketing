@@ -2,6 +2,7 @@ import { Hero } from "@/components/home/Hero";
 import { HowItWorks } from "@/components/home/HowItWorks";
 import { LessonDemo } from "@/components/home/LessonDemo";
 import { StatsBand } from "@/components/home/StatsBand";
+import { CompeteTeaser } from "@/components/home/CompeteTeaser";
 import { ThemesTeaser } from "@/components/home/ThemesTeaser";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { SectionHeading } from "@/components/shared/SectionHeading";
@@ -24,6 +25,7 @@ export default function Home() {
       </section>
       <HowItWorks />
       <StatsBand />
+      <CompeteTeaser />
       <ThemesTeaser />
       <section className="bg-cream py-20 text-center">
         <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
