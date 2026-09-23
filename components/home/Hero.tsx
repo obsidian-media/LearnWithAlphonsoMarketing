@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { CTAButton } from "../shared/CTAButton";
 import { MascotFloat } from "../shared/MascotFloat";
@@ -28,9 +29,12 @@ export function Hero() {
             <CTAButton href="https://learn.alphonsoecosystem.app/auth" external>
               Start learning free
             </CTAButton>
-            <span className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold text-ink-soft">
-              🦙 Coming soon on iOS
-            </span>
+            <Link
+              href="/download"
+              className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold text-ink-soft transition hover:border-coral/40 hover:text-ink"
+            >
+              🦙 In TestFlight beta on iOS
+            </Link>
           </div>
         </motion.div>
 
