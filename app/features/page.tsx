@@ -29,7 +29,7 @@ const CURRICULUM = [
   {
     title: "Three courses",
     description:
-      "534 English lessons, 500 French lessons, and a newly-launched 125-lesson Spanish course — growing the same way French did.",
+      "534 English lessons, 500 French lessons, and 508 Spanish lessons — all three now at full A1–C1 depth.",
     icon: <BookIcon className="size-5" />,
   },
   {
