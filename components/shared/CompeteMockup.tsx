@@ -13,7 +13,7 @@ export function CompeteMockup() {
     <PhoneFrame>
       <div className="flex items-center gap-2 text-xs font-semibold text-ink-soft">
         <SwordsIcon className="size-4 text-coral" />
-        Open duel · Gold division
+        Open duel · matched by level
       </div>
       <div className="mt-6 flex items-center justify-center gap-4">
         <motion.div

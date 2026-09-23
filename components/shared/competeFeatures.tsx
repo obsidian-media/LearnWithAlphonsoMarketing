@@ -16,13 +16,13 @@ export const COMPETE_FEATURES: FeatureItem[] = [
   {
     title: "Duels & weekly challenges",
     description:
-      "Clear six weekly goals solo, or call out a stranger for a live duel — first to the XP target wins.",
+      "Clear six weekly goals solo, or get matched with a stranger for a head-to-head duel — most XP by the deadline wins.",
     icon: <SwordsIcon className="size-5" />,
   },
   {
     title: "Season ladder",
     description:
-      "Five weekly divisions, Bronze to Diamond cohorts. Finish at the top and you're promoted; the bottom and you're demoted.",
+      "Five weekly divisions of about 30 learners each. Finish near the top and you're promoted; near the bottom and you're demoted.",
     icon: <TrophyIcon className="size-5" />,
   },
 ];
