@@ -16,4 +16,13 @@ describe("Features page", () => {
     expect(screen.getByRole("heading", { name: /spaced repetition/i, level: 3 })).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Gamification", level: 3 })).toBeInTheDocument();
   });
+
+  it("covers Teams, Duels, and the Season Ladder", () => {
+    render(<FeaturesPage />);
+    expect(screen.getByRole("heading", { name: "Teams", level: 3 })).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: "Duels & weekly challenges", level: 3 }),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Season ladder", level: 3 })).toBeInTheDocument();
+  });
 });

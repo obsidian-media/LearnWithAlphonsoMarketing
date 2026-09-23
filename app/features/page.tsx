@@ -4,6 +4,8 @@ import { FeatureGrid } from "@/components/shared/FeatureGrid";
 import { LessonMockup } from "@/components/shared/LessonMockup";
 import { ConversationMockup } from "@/components/shared/ConversationMockup";
 import { GamificationMockup } from "@/components/shared/GamificationMockup";
+import { CompeteMockup } from "@/components/shared/CompeteMockup";
+import { COMPETE_FEATURES } from "@/components/shared/competeFeatures";
 import {
   BookIcon,
   MicIcon,
@@ -17,7 +19,7 @@ import {
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Everything inside Learn with Alphonso: curriculum, AI conversation, spaced repetition, and gamification.",
+    "Everything inside Learn with Alphonso: curriculum, AI conversation, spaced repetition, gamification, and team competition.",
 };
 
 const CURRICULUM = [
@@ -138,6 +140,15 @@ export default function FeaturesPage() {
         visual={<GamificationMockup />}
       >
         <FeatureGrid items={SOCIAL} />
+      </ContentSection>
+      <ContentSection
+        eyebrow="Compete"
+        title="Teams, duels, and a real season ladder"
+        tone="royal"
+        visual={<CompeteMockup />}
+        id="compete"
+      >
+        <FeatureGrid items={COMPETE_FEATURES} tone="royal" />
       </ContentSection>
       <ContentSection eyebrow="Why Alphonso" title="Not another flashcard app">
         <div className="grid gap-8 sm:grid-cols-3">
