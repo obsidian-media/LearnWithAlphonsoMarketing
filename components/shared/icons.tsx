@@ -107,3 +107,38 @@ export function HeartIcon({ className }: IconProps) {
     </svg>
   );
 }
+
+// A shield-with-team-dots shape, deliberately NOT another two-circle
+// person pair -- UsersIcon already owns that motif for "Friends" on the
+// same Features page, and reusing it for "Teams" would read as the same
+// icon twice.
+export function TeamsIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 3 5 6v5c0 5 3 8.5 7 10 4-1.5 7-5 7-10V6l-7-3Z"
+        stroke="currentColor"
+        strokeWidth={W}
+        strokeLinejoin="round"
+      />
+      <circle cx="9.5" cy="10.5" r="1.3" fill="currentColor" />
+      <circle cx="14.5" cy="10.5" r="1.3" fill="currentColor" />
+      <circle cx="12" cy="14" r="1.3" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function SwordsIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M4 4l16 16M6 4l2 2M18 20l2 2M20 4 4 20M4 18l2 2M20 6l-2-2"
+        stroke="currentColor"
+        strokeWidth={W}
+        strokeLinecap="round"
+      />
+      <circle cx="4" cy="4" r="1.3" fill="currentColor" />
+      <circle cx="20" cy="4" r="1.3" fill="currentColor" />
+    </svg>
+  );
+}
