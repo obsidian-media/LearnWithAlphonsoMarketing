@@ -1,12 +1,13 @@
 import { AnimatedCounter } from "../shared/AnimatedCounter";
 
-// Per-course stats (534 English / 500 French / 125 Spanish) would need a
+// Per-course stats (534 English / 500 French / 508 Spanish) would need a
 // new line here every time a course grows or a new one ships -- rolling up
-// to total lessons + language count scales without a rewrite, and stays
-// honest without implying Spanish (125 lessons, launched 2026-09-21) has
-// the same depth as English/French yet.
+// to total lessons + language count scales without a rewrite. Spanish
+// reached full parity with French (508 lessons) on 2026-09-21, verified in
+// LearnWithAlphonso/LESSON_ASSETS.md on 2026-09-22 -- no longer the
+// newest/thinnest course, so no asterisk needed here anymore.
 const STATS = [
-  { value: 1159, unit: "total lessons" },
+  { value: 1542, unit: "total lessons" },
   { value: 3, unit: "languages" },
   { value: 5, unit: "CEFR levels, A1–C1" },
 ];
