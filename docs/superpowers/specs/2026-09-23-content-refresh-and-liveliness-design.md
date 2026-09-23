@@ -34,18 +34,27 @@ follow-up content pass should cover.
 
 ### 2. New section: Teams, Challenges & Season Ladder
 
-Not represented anywhere on the site today. Add:
+Not represented anywhere on the site today. Two placements, not one — the
+original design conversation covered both and the first draft of this spec
+silently dropped the home-page half:
 
-- A `SOCIAL` entry (or short 3-card follow-up set) on `app/features/page.tsx`
-  covering: persistent Teams (weekly XP leaderboard), Challenges (weekly solo
-  goals + stranger duel matchmaking), and the Season Ladder (weekly
-  promotion/demotion divisions). Reuses `FeatureGrid`/`ContentSection` — no
-  new layout primitives needed.
-- Two new icons in `components/shared/icons.tsx` (Teams, Duel/Swords),
-  matching the existing 2.6 stroke-weight convention.
+- **Home page** (`app/page.tsx`): a compact `CompeteTeaser` section between
+  `StatsBand` and `ThemesTeaser` — three short cards (Teams / Challenges &
+  Duels / Season Ladder), no mockup, links out to `/features#compete` for
+  detail. Keeps the homepage scannable rather than duplicating the full grid.
+- **Features page** (`app/features/page.tsx`): a full `SOCIAL`-style 3-item
+  `FeatureGrid` entry (`id="compete"`) covering: persistent Teams (weekly XP
+  leaderboard), Challenges (weekly solo goals + stranger duel matchmaking),
+  and the Season Ladder (weekly promotion/demotion divisions).
+- Two new icons in `components/shared/icons.tsx` — a Teams icon and a
+  Duel/Swords icon — matching the existing 2.6 stroke-weight convention.
+  **Teams must be visually distinct from the existing `UsersIcon`** (already
+  used for the "Friends" feature elsewhere on this same page): a
+  multi-person-under-one-roof/banner shape, not another two-circle pair, so
+  the two social features don't read as the same icon reused.
 - A new `CompeteMockup` component (sibling to `GamificationMockup`,
-  `ConversationMockup`, same `PhoneFrame` shell) depicting a duel
-  face-off or season-division card, used as the section's `visual`.
+  `ConversationMockup`, same `PhoneFrame` shell) depicting a duel face-off,
+  used as the Features-page section's `visual`.
 - Copy stays limited to real, shipped mechanics — no invented numbers (e.g.
   no fake "10,000 teams competing" claims).
 
@@ -58,12 +67,17 @@ That mismatch is already how the app itself presents him (in-app chat
 avatar), so we lean into it rather than trying to force stylistic parity:
 
 - Copy `Hector.png` into `public/mascot/hector-portrait.png`.
-- Frame him in a rounded-card portrait treatment (not a floating cutout like
-  `MascotFloat`) — a new small presentational component or inline `Image` +
-  card wrapper.
-- Placement: the Pricing page's "Hector Pro" card (`app/pricing/page.tsx`)
-  and the About page's story section (`app/about/page.tsx`), explicitly
-  introducing him as the Pro AI tutor persona, distinct from Alphonso.
+- New shared component `components/shared/MascotPortraitCard.tsx` — a
+  rounded-card portrait treatment (not a floating cutout like `MascotFloat`;
+  used twice below, so a single component beats duplicated inline markup).
+- **Pricing page** (`app/pricing/page.tsx`): inside the existing "Hector Pro"
+  card, replacing empty space above the feature list.
+- **About page** (`app/about/page.tsx`): NOT merged into the existing "Meet
+  Alphonso" flex row (that layout is sized for one mascot + one prose block
+  and Hector's different art style would clash inside it). Instead, a
+  second, separate `ContentSection` block directly beneath it — "Meet
+  Hector" — mirroring the first block's structure (portrait + prose) but
+  its own framing: the Pro AI tutor, distinct from Alphonso the free host.
 
 ### 4. TestFlight beta link
 
@@ -74,6 +88,11 @@ Public link: `https://testflight.apple.com/join/awk9cvNQ`.
   `app/download/page.tsx`. The waitlist stays as the primary path — the
   TestFlight button is additive, not a replacement, so the team keeps email
   capture for everyone who isn't ready to install a beta build.
+- No new CTA on the Hero — a third button there is clutter. Instead its
+  existing "🦙 Coming soon on iOS" badge (currently a plain `<span>`,
+  non-interactive) becomes a `Link` to `/download`, so the TestFlight/
+  waitlist choice is one click away from the first screen without adding
+  visual weight to it.
 
 ### 5. Liveliness / Framer Motion pass
 
@@ -85,10 +104,11 @@ comments in `ContentSection.tsx` and `FeatureGrid.tsx` — a mid-fade or
 pre-`whileInView` snapshot reads as a real contrast failure to axe). New
 work:
 
-- Hover/tap physicality on the new Teams/Duels cards (reuses `FeatureGrid`'s
+- Hover/tap physicality on the new Teams/Duels cards, both the home
+  `CompeteTeaser` and the Features-page grid (reuses `FeatureGrid`'s
   existing hover pattern — no new pattern needed).
-- A small motion moment in `CompeteMockup` (e.g. two avatars sliding toward
-  each other for a duel face-off).
+- A small motion moment in `CompeteMockup`: two avatars sliding toward each
+  other for a duel face-off, holding on a "VS" beat.
 - Hector's portrait gets its own entrance animation on the Pricing/About
   pages, paired with (not identical to) Alphonso's existing `MascotFloat`
   treatment, so the two read as companion pieces.
