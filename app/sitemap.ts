@@ -10,7 +10,10 @@ const ROUTES = [
   "/blog",
   "/blog/how-spaced-repetition-works",
   "/blog/cefr-levels-explained",
+  "/blog/best-language-learning-apps-2026",
   "/compare/duolingo-alternative",
+  "/compare/babbel-alternative",
+  "/compare/busuu-alternative",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

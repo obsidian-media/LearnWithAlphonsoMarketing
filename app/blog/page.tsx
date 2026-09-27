@@ -8,6 +8,12 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
+    slug: "best-language-learning-apps-2026",
+    title: "Best language learning apps in 2026: how to actually choose",
+    description:
+      "Duolingo, Babbel, Busuu, or an AI conversation app — a practical way to pick based on what actually helps a language stick.",
+  },
+  {
     slug: "how-spaced-repetition-works",
     title: "How spaced repetition actually works",
     description: "The algorithm behind why review timing matters more than review frequency.",

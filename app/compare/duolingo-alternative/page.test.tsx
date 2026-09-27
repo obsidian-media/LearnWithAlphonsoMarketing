@@ -10,4 +10,16 @@ describe("duolingo-alternative comparison page", () => {
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/duolingo/i);
     expect(screen.queryByText(/duolingo is bad|duolingo sucks/i)).not.toBeInTheDocument();
   });
+
+  it("cross-links to the other comparison pages and the roundup post", () => {
+    render(<Page />);
+    expect(screen.getByRole("link", { name: "Babbel" })).toHaveAttribute(
+      "href",
+      "/compare/babbel-alternative",
+    );
+    expect(screen.getByRole("link", { name: "Busuu" })).toHaveAttribute(
+      "href",
+      "/compare/busuu-alternative",
+    );
+  });
 });

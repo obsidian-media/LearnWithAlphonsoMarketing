@@ -12,5 +12,8 @@ describe("BlogIndexPage", () => {
       "href",
       "/blog/cefr-levels-explained",
     );
+    expect(
+      screen.getByRole("link", { name: /best language learning apps in 2026/i }),
+    ).toHaveAttribute("href", "/blog/best-language-learning-apps-2026");
   });
 });
