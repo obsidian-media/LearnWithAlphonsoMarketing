@@ -31,6 +31,11 @@ export function Footer() {
                   Download
                 </Link>
               </li>
+              <li>
+                <Link href="/blog" className="text-ink hover:text-coral">
+                  Blog
+                </Link>
+              </li>
             </ul>
           </div>
           <div>
