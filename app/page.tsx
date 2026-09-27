@@ -3,9 +3,11 @@ import { HowItWorks } from "@/components/home/HowItWorks";
 import { LessonDemo } from "@/components/home/LessonDemo";
 import { StatsBand } from "@/components/home/StatsBand";
 import { CompeteTeaser } from "@/components/home/CompeteTeaser";
+import { ListenTeaser } from "@/components/home/ListenTeaser";
 import { ThemesTeaser } from "@/components/home/ThemesTeaser";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { SectionHeading } from "@/components/shared/SectionHeading";
+import { FAQ } from "@/components/shared/FAQ";
 
 export default function Home() {
   return (
@@ -26,13 +28,19 @@ export default function Home() {
       <HowItWorks />
       <StatsBand />
       <CompeteTeaser />
+      <ListenTeaser />
       <ThemesTeaser />
+      <FAQ />
       <section className="bg-cream py-20 text-center">
         <h2 className="font-display text-3xl font-semibold text-ink sm:text-4xl">
           Ready when you are.
         </h2>
         <div className="mt-6 flex justify-center">
-          <CTAButton href="https://learn.alphonsoecosystem.app/auth" external>
+          <CTAButton
+            href="https://learn.alphonsoecosystem.app/auth"
+            external
+            trackEvent="start_learning_click"
+          >
             Start learning free
           </CTAButton>
         </div>

@@ -25,4 +25,22 @@ describe("Features page", () => {
     ).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Season ladder", level: 3 })).toBeInTheDocument();
   });
+
+  it("states the current, correct lesson counts and question formats", () => {
+    render(<FeaturesPage />);
+    expect(screen.getByText(/609 English lessons/)).toBeInTheDocument();
+    expect(screen.getByText(/6 question formats/i)).toBeInTheDocument();
+    expect(screen.queryByText(/image matching/)).not.toBeInTheDocument();
+  });
+
+  it("has a Listen section with a stable deep-link id", () => {
+    render(<FeaturesPage />);
+    expect(screen.getByText(/mini-player that remembers/i)).toBeInTheDocument();
+    expect(document.getElementById("listen")).not.toBeNull();
+  });
+
+  it("mentions self-serve account deletion and safety tools", () => {
+    render(<FeaturesPage />);
+    expect(screen.getByText(/your account, your control/i)).toBeInTheDocument();
+  });
 });

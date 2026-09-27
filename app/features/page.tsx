@@ -6,6 +6,8 @@ import { ConversationMockup } from "@/components/shared/ConversationMockup";
 import { GamificationMockup } from "@/components/shared/GamificationMockup";
 import { CompeteMockup } from "@/components/shared/CompeteMockup";
 import { COMPETE_FEATURES } from "@/components/shared/competeFeatures";
+import { ListenMockup } from "@/components/shared/ListenMockup";
+import { LISTEN_FEATURES } from "@/components/shared/listenFeatures";
 import {
   BookIcon,
   MicIcon,
@@ -31,13 +33,13 @@ const CURRICULUM = [
   {
     title: "Three courses",
     description:
-      "534 English lessons, 500 French lessons, and 508 Spanish lessons — all three now at full A1–C1 depth.",
+      "609 English lessons, 575 French lessons, and 583 Spanish lessons — all three at full A1–C1 depth with every question type.",
     icon: <BookIcon className="size-5" />,
   },
   {
-    title: "5 question formats",
+    title: "6 question formats",
     description:
-      "Multiple choice, fill-in-the-blank, image matching, listening, and sentence reordering.",
+      "Multiple choice, fill-in-the-blank, sentence reordering, listening comprehension, speaking practice, and free-form translation.",
     icon: <PaletteIcon className="size-5" />,
   },
   {
@@ -110,6 +112,11 @@ const DIFFERENTIATORS = [
     title: "It knows what you're stuck on",
     description: "Weakness tracking feeds review automatically — you don't have to notice it yourself.",
   },
+  {
+    title: "Your account, your control",
+    description:
+      "Delete your account and export your data yourself, in-app, any time — plus block and report tools on every social feature.",
+  },
 ];
 
 export default function FeaturesPage() {
@@ -149,6 +156,14 @@ export default function FeaturesPage() {
         id="compete"
       >
         <FeatureGrid items={COMPETE_FEATURES} tone="royal" />
+      </ContentSection>
+      <ContentSection
+        eyebrow="Listen"
+        title="Language learning for your headphones"
+        visual={<ListenMockup />}
+        id="listen"
+      >
+        <FeatureGrid items={LISTEN_FEATURES} />
       </ContentSection>
       <ContentSection eyebrow="Why Alphonso" title="Not another flashcard app">
         <div className="grid gap-8 sm:grid-cols-3">

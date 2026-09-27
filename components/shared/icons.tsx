@@ -128,6 +128,41 @@ export function TeamsIcon({ className }: IconProps) {
   );
 }
 
+export function HeadphonesIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M4 14v-2a8 8 0 0 1 16 0v2"
+        stroke="currentColor"
+        strokeWidth={W}
+        strokeLinecap="round"
+      />
+      <rect x="2.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" strokeWidth={W} />
+      <rect x="17.5" y="13" width="4" height="6" rx="1.5" stroke="currentColor" strokeWidth={W} />
+    </svg>
+  );
+}
+
+export function DownloadIcon({ className }: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
+      <path
+        d="M12 3v12m0 0-4-4m4 4 4-4"
+        stroke="currentColor"
+        strokeWidth={W}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"
+        stroke="currentColor"
+        strokeWidth={W}
+        strokeLinecap="round"
+      />
+    </svg>
+  );
+}
+
 export function SwordsIcon({ className }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
