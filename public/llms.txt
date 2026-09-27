@@ -1,0 +1,38 @@
+# Learn with Alphonso
+
+A mobile-first English, French, and Spanish learning app: bite-size
+lessons, AI voice/text conversation practice, spaced repetition review,
+and gamification (streaks, leagues, teams, duels, a season ladder). Built
+by Obsidian Media.
+
+## Courses
+- English, French, and Spanish, each with 5 CEFR levels (A1 through C1)
+- 1,767 lessons total (609 English / 575 French / 583 Spanish), 8,886
+  questions across 6 formats: multiple choice, fill-in-the-blank, sentence
+  reordering, listening comprehension, speaking practice, free-form
+  translation
+
+## Practice
+- 12 AI-guided roleplay scenarios (voice or text), adaptive to CEFR level
+- Spaced repetition review queue (SM-2-style algorithm)
+
+## Listen
+- A browsable library of short audio episodes with a persistent
+  mini-player that resumes across web and iOS, transcripts included, and
+  offline downloads on iOS
+
+## Platforms
+- Web app: free, works in any browser, no download — https://learn.alphonsoecosystem.app
+- iOS app: in TestFlight beta — https://testflight.apple.com/join/awk9cvNQ
+
+## Pricing
+- Free tier: full curriculum, AI conversation practice, spaced repetition,
+  gamification
+- Hector Pro ($9.99/month): a second AI tutor mode with cross-session
+  memory — not purchasable yet
+
+## Links
+- Features: https://discover.alphonsoecosystem.app/features
+- Pricing: https://discover.alphonsoecosystem.app/pricing
+- Download: https://discover.alphonsoecosystem.app/download
+- About: https://discover.alphonsoecosystem.app/about
