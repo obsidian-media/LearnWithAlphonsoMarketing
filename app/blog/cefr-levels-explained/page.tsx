@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { ArticleLayout } from "@/components/shared/ArticleLayout";
 
 export const metadata: Metadata = {
@@ -37,6 +38,13 @@ export default function Page() {
         course doesn&apos;t. Speaking is deliberately left out of placement: it would require
         microphone access before you&apos;ve even seen the app, and a denial would leave the
         question unanswerable.
+      </p>
+      <p>
+        Ready to find out where you stand?{" "}
+        <Link href="/placement-test" className="text-coral-deep underline">
+          Take the free placement test
+        </Link>
+        .
       </p>
     </ArticleLayout>
   );

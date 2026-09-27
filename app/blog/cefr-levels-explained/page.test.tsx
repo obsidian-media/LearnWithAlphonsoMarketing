@@ -9,4 +9,12 @@ describe("cefr-levels-explained page", () => {
       screen.getByRole("heading", { level: 1, name: "CEFR levels explained: which one are you?" }),
     ).toBeInTheDocument();
   });
+
+  it("links to the placement test", () => {
+    render(<Page />);
+    expect(screen.getByRole("link", { name: /take the free placement test/i })).toHaveAttribute(
+      "href",
+      "/placement-test",
+    );
+  });
 });

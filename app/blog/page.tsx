@@ -14,6 +14,18 @@ const POSTS = [
       "Duolingo, Babbel, Busuu, or an AI conversation app — a practical way to pick based on what actually helps a language stick.",
   },
   {
+    slug: "best-way-to-learn-spanish-online",
+    title: "The best way to learn Spanish online in 2026",
+    description:
+      "Why Latin American Spanish, real listening practice, and AI conversation matter more than another vocabulary list.",
+  },
+  {
+    slug: "ai-conversation-practice-vs-multiple-choice",
+    title: "AI conversation practice: why talking beats multiple choice",
+    description:
+      "Recognizing the right answer in a list and producing language yourself are different skills.",
+  },
+  {
     slug: "how-spaced-repetition-works",
     title: "How spaced repetition actually works",
     description: "The algorithm behind why review timing matters more than review frequency.",

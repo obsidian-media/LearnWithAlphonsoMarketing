@@ -15,5 +15,11 @@ describe("BlogIndexPage", () => {
     expect(
       screen.getByRole("link", { name: /best language learning apps in 2026/i }),
     ).toHaveAttribute("href", "/blog/best-language-learning-apps-2026");
+    expect(
+      screen.getByRole("link", { name: /best way to learn spanish online/i }),
+    ).toHaveAttribute("href", "/blog/best-way-to-learn-spanish-online");
+    expect(
+      screen.getByRole("link", { name: /ai conversation practice: why talking beats multiple choice/i }),
+    ).toHaveAttribute("href", "/blog/ai-conversation-practice-vs-multiple-choice");
   });
 });
