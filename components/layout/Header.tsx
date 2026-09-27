@@ -37,7 +37,11 @@ export function Header() {
         </nav>
 
         <div className="hidden md:block">
-          <CTAButton href="https://learn.alphonsoecosystem.app/auth" external>
+          <CTAButton
+            href="https://learn.alphonsoecosystem.app/auth"
+            external
+            trackEvent="start_learning_click"
+          >
             Start learning free
           </CTAButton>
         </div>
@@ -72,7 +76,11 @@ export function Header() {
                   {link.label}
                 </Link>
               ))}
-              <CTAButton href="https://learn.alphonsoecosystem.app/auth" external>
+              <CTAButton
+                href="https://learn.alphonsoecosystem.app/auth"
+                external
+                trackEvent="start_learning_click"
+              >
                 Start learning free
               </CTAButton>
             </div>

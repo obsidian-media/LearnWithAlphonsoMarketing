@@ -1,6 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import userEvent from "@testing-library/user-event";
+import { describe, it, expect, vi } from "vitest";
 import { CTAButton } from "./CTAButton";
+
+vi.mock("@vercel/analytics", () => ({ track: vi.fn() }));
 
 describe("CTAButton", () => {
   it("renders an internal link by default", () => {
@@ -38,5 +41,26 @@ describe("CTAButton", () => {
     const link = screen.getByRole("link", { name: /join the beta/i });
     expect(link.className).toContain("text-white");
     expect(link.className).toContain("border-white/30");
+  });
+
+  it("fires the named analytics event on click when trackEvent is set", async () => {
+    const { track } = await import("@vercel/analytics");
+    const user = userEvent.setup();
+    render(
+      <CTAButton href="/somewhere" trackEvent="test_event">
+        Click me
+      </CTAButton>,
+    );
+    await user.click(screen.getByRole("link", { name: "Click me" }));
+    expect(track).toHaveBeenCalledWith("test_event");
+  });
+
+  it("does not call track when trackEvent is omitted", async () => {
+    const { track } = await import("@vercel/analytics");
+    vi.mocked(track).mockClear();
+    const user = userEvent.setup();
+    render(<CTAButton href="/somewhere">Click me</CTAButton>);
+    await user.click(screen.getByRole("link", { name: "Click me" }));
+    expect(track).not.toHaveBeenCalled();
   });
 });

@@ -14,6 +14,8 @@ vi.mock("@/db", () => ({
   }),
 }));
 
+vi.mock("@vercel/analytics", () => ({ track: vi.fn() }));
+
 describe("Download page", () => {
   it("offers the web app as the primary path and an email waitlist for iOS", async () => {
     render(await DownloadPage());
@@ -34,5 +36,12 @@ describe("Download page", () => {
     const testflightLink = screen.getByRole("link", { name: /join the testflight beta/i });
     expect(testflightLink).toHaveAttribute("href", "https://testflight.apple.com/join/awk9cvNQ");
     expect(testflightLink).toHaveAttribute("target", "_blank");
+  });
+
+  it("presents TestFlight as the primary iOS action, waitlist as the fallback", async () => {
+    render(await DownloadPage());
+    const testflightLink = screen.getByRole("link", { name: /join the testflight beta/i });
+    expect(testflightLink.className).toContain("from-coral");
+    expect(screen.getByText(/not ready to install a beta/i)).toBeInTheDocument();
   });
 });

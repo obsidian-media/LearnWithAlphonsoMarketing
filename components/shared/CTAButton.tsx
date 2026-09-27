@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { track } from "@vercel/analytics";
 
 type CTAButtonProps = {
   href: string;
@@ -7,6 +10,9 @@ type CTAButtonProps = {
   variant?: "primary" | "secondary" | "secondary-inverted";
   external?: boolean;
   className?: string;
+  /** Fires a named Vercel Analytics event on click. Omit for CTAs that
+   * aren't part of the tracked conversion funnel. */
+  trackEvent?: string;
 };
 
 export function CTAButton({
@@ -15,6 +21,7 @@ export function CTAButton({
   variant = "primary",
   external = false,
   className = "",
+  trackEvent,
 }: CTAButtonProps) {
   const base =
     "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]";
@@ -28,7 +35,12 @@ export function CTAButton({
   const externalProps = external ? { target: "_blank", rel: "noopener noreferrer" } : {};
 
   return (
-    <Link href={href} className={`${base} ${styles} ${className}`} {...externalProps}>
+    <Link
+      href={href}
+      className={`${base} ${styles} ${className}`}
+      onClick={trackEvent ? () => track(trackEvent) : undefined}
+      {...externalProps}
+    >
       {children}
     </Link>
   );

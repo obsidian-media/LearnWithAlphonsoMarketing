@@ -46,7 +46,11 @@ export default async function DownloadPage() {
           The web app works on any device, right now, free — no download needed.
         </p>
         <div className="mt-6">
-          <CTAButton href="https://learn.alphonsoecosystem.app/auth" external>
+          <CTAButton
+            href="https://learn.alphonsoecosystem.app/auth"
+            external
+            trackEvent="start_learning_click"
+          >
             Start learning free
           </CTAButton>
         </div>
@@ -60,20 +64,27 @@ export default async function DownloadPage() {
       >
         <div className="max-w-md">
           <p className="text-sm text-white/80">
-            Learn with Alphonso is in TestFlight beta on iOS right now. Join with the link below,
-            or leave your email and we&apos;ll let you know when it&apos;s out of beta.
+            Learn with Alphonso is in TestFlight beta on iOS right now. Sign in with Apple or
+            Google — no new password to remember — and join with the link below.
           </p>
           <div className="mt-5">
             <CTAButton
               href="https://testflight.apple.com/join/awk9cvNQ"
               external
-              variant="secondary-inverted"
+              variant="primary"
+              trackEvent="testflight_click"
             >
               Join the TestFlight beta
             </CTAButton>
           </div>
-          <div className="mt-6">
-            <WaitlistForm />
+          <div className="mt-8">
+            <p className="text-xs text-white/60">
+              Not ready to install a beta? Leave your email and we&apos;ll let you know when
+              it&apos;s out of beta instead.
+            </p>
+            <div className="mt-3">
+              <WaitlistForm />
+            </div>
             <div className="mt-4">
               <WaitlistCount count={waitlistCount} />
             </div>

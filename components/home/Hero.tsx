@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { CTAButton } from "../shared/CTAButton";
 import { MascotFloat } from "../shared/MascotFloat";
@@ -26,15 +25,21 @@ export function Hero() {
             Alphonso the llama cheering you on.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <CTAButton href="https://learn.alphonsoecosystem.app/auth" external>
+            <CTAButton
+              href="https://learn.alphonsoecosystem.app/auth"
+              external
+              trackEvent="start_learning_click"
+            >
               Start learning free
             </CTAButton>
-            <Link
-              href="/download"
-              className="inline-flex items-center gap-2 rounded-full border border-ink/10 bg-white px-4 py-2 text-xs font-semibold text-ink-soft transition hover:border-coral/40 hover:text-ink"
+            <CTAButton
+              href="https://testflight.apple.com/join/awk9cvNQ"
+              external
+              variant="secondary"
+              trackEvent="testflight_click"
             >
-              🦙 In TestFlight beta on iOS
-            </Link>
+              🦙 Join the TestFlight beta
+            </CTAButton>
           </div>
         </motion.div>
 

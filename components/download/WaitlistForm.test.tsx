@@ -3,6 +3,8 @@ import userEvent from "@testing-library/user-event";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { WaitlistForm } from "./WaitlistForm";
 
+vi.mock("@vercel/analytics", () => ({ track: vi.fn() }));
+
 describe("WaitlistForm", () => {
   beforeEach(() => {
     vi.stubGlobal(
@@ -37,5 +39,17 @@ describe("WaitlistForm", () => {
     await user.click(screen.getByRole("button", { name: /notify me/i }));
 
     expect(await screen.findByRole("status")).toHaveTextContent(/already on the list/i);
+  });
+
+  it("tracks a waitlist_submit event on successful submission", async () => {
+    const { track } = await import("@vercel/analytics");
+    const user = userEvent.setup();
+    render(<WaitlistForm />);
+
+    await user.type(screen.getByLabelText(/email address/i), "friend@example.com");
+    await user.click(screen.getByRole("button", { name: /notify me/i }));
+
+    await screen.findByRole("status");
+    expect(track).toHaveBeenCalledWith("waitlist_submit");
   });
 });

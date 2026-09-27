@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
+import { track } from "@vercel/analytics";
 
 type Status = "idle" | "loading" | "success" | "error";
 
@@ -27,6 +28,7 @@ export function WaitlistForm() {
       }
       setStatus("success");
       setMessage(json.alreadyJoined ? "You're already on the list!" : "You're on the list!");
+      track("waitlist_submit");
     } catch {
       setStatus("error");
       setMessage("Something went wrong. Try again.");

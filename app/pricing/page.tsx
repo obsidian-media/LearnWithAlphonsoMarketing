@@ -43,7 +43,11 @@ export default function PricingPage() {
               ))}
             </ul>
             <div className="mt-8">
-              <CTAButton href="https://learn.alphonsoecosystem.app/auth" external>
+              <CTAButton
+                href="https://learn.alphonsoecosystem.app/auth"
+                external
+                trackEvent="start_learning_click"
+              >
                 Start learning free
               </CTAButton>
             </div>
