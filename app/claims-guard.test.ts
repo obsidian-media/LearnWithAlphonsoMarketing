@@ -25,7 +25,10 @@ function files(rel: string): string[] {
   });
 }
 
-const SOURCES = SCAN.flatMap(files).map((f) => ({ file: f, text: readFileSync(path.join(ROOT, f), "utf8") }));
+const SOURCES = SCAN.flatMap(files).map((f) => ({
+  file: f,
+  text: readFileSync(path.join(ROOT, f), "utf8"),
+}));
 
 const BANNED: { label: string; re: RegExp }[] = [
   { label: "TestFlight link", re: /testflight\.apple\.com/i },
