@@ -15,7 +15,7 @@ const ROWS: CompareRow[] = [
   ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Built into lesson flow"],
   ["CEFR-aligned curriculum", "Yes, A1–C1", "Yes, A1–B2"],
   ["Languages", "English, French, Spanish", "14"],
-  ["Price", "Free, Pro tier coming", "~$9–18/month subscription"],
+  ["Price", "Free; optional Alphonso Pro ($9.99/month, iOS)", "~$9–18/month subscription"],
 ];
 
 export default function BabbelAlternativePage() {
@@ -27,12 +27,16 @@ export default function BabbelAlternativePage() {
         </h1>
         <p className="mt-4 text-ink-soft">
           Babbel&apos;s CEFR-aligned lessons are solid, but the curriculum sits behind a
-          subscription after the first lesson of each course. Here&apos;s how the two compare if
-          you want the whole thing free.
+          subscription after the first lesson of each course. Here&apos;s how the two compare if you
+          want the whole thing free.
         </p>
         <CompareTable competitorName="Babbel" rows={ROWS} />
         <div className="mt-10">
-          <CTAButton href="https://learn.alphonsoecosystem.app/auth" external trackEvent="start_learning_click">
+          <CTAButton
+            href="https://learn.alphonsoecosystem.app/auth"
+            external
+            trackEvent="start_learning_click"
+          >
             Try Learn with Alphonso free
           </CTAButton>
         </div>

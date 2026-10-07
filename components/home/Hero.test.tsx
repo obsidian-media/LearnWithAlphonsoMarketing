@@ -12,11 +12,12 @@ describe("Hero", () => {
     );
   });
 
-  it("offers Join the TestFlight beta as a real CTA button, not an App Store badge", () => {
+  it("points iPhone users to the download page, with no TestFlight link and no badge before launch", () => {
     render(<Hero />);
-    const cta = screen.getByRole("link", { name: /join the testflight beta/i });
-    expect(cta).toHaveAttribute("href", "https://testflight.apple.com/join/awk9cvNQ");
-    expect(cta).toHaveAttribute("target", "_blank");
+    const cta = screen.getByRole("link", { name: /get the iphone app/i });
+    expect(cta).toHaveAttribute("href", "/download");
+    expect(cta).not.toHaveAttribute("target");
+    expect(screen.queryByRole("link", { name: /testflight/i })).not.toBeInTheDocument();
     expect(screen.queryByRole("link", { name: /app store/i })).not.toBeInTheDocument();
   });
 });

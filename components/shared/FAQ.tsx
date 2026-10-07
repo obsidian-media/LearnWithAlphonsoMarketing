@@ -3,7 +3,7 @@ import { SectionHeading } from "./SectionHeading";
 const FAQS = [
   {
     q: "Is Learn with Alphonso free?",
-    a: "Yes — the full curriculum, AI conversation practice, spaced repetition review, and gamification are free. Hector, a second AI tutor mode, is a paid Pro tier that isn't purchasable yet.",
+    a: "Yes: the full curriculum, AI conversation practice, spaced repetition review and gamification are free. Alphonso Pro, an optional $9.99/month subscription in the iOS app, adds Hector, a personal AI voice tutor.",
   },
   {
     q: "What languages can I learn?",
@@ -11,7 +11,7 @@ const FAQS = [
   },
   {
     q: "Is there an iOS app?",
-    a: "Yes — Learn with Alphonso is in TestFlight beta on iOS. The web app works on any device today, free, no download needed.",
+    a: "The iPhone app is coming soon to the App Store. The web app works on any device today, free, with no download needed.",
   },
   {
     q: "How is this different from Duolingo?",

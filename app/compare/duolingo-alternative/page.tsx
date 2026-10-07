@@ -15,7 +15,7 @@ const ROWS: CompareRow[] = [
   ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Built into lesson flow"],
   ["Gamification (streaks, leagues, teams)", "Yes", "Yes"],
   ["Languages", "English, French, Spanish", "40+"],
-  ["Price", "Free, Pro tier coming", "Free, Super subscription"],
+  ["Price", "Free; optional Alphonso Pro ($9.99/month, iOS)", "Free, Super subscription"],
 ];
 
 export default function DuolingoAlternativePage() {
@@ -32,7 +32,11 @@ export default function DuolingoAlternativePage() {
         </p>
         <CompareTable competitorName="Duolingo" rows={ROWS} />
         <div className="mt-10">
-          <CTAButton href="https://learn.alphonsoecosystem.app/auth" external trackEvent="start_learning_click">
+          <CTAButton
+            href="https://learn.alphonsoecosystem.app/auth"
+            external
+            trackEvent="start_learning_click"
+          >
             Try Learn with Alphonso free
           </CTAButton>
         </div>

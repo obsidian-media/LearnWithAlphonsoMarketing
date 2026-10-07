@@ -17,4 +17,13 @@ describe("FAQ", () => {
     expect(data["@type"]).toBe("FAQPage");
     expect(data.mainEntity).toHaveLength(6);
   });
+
+  it("answers pricing and iOS questions with launch-accurate facts", () => {
+    render(<FAQ />);
+    expect(
+      screen.getByText(/alphonso pro, an optional \$9\.99\/month subscription in the ios app/i),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/coming soon to the app store/i)).toBeInTheDocument();
+    expect(screen.queryByText(/testflight/i)).not.toBeInTheDocument();
+  });
 });

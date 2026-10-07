@@ -15,7 +15,7 @@ const ROWS: CompareRow[] = [
   ["Community-corrected exercises", "No — AI-graded instead", "Yes"],
   ["CEFR-aligned curriculum", "Yes, A1–C1", "Yes"],
   ["Languages", "English, French, Spanish", "14"],
-  ["Price", "Free, Pro tier coming", "Free tier + ~$6–8/month Premium"],
+  ["Price", "Free; optional Alphonso Pro ($9.99/month, iOS)", "Free tier + ~$6–8/month Premium"],
 ];
 
 export default function BusuuAlternativePage() {
@@ -26,13 +26,17 @@ export default function BusuuAlternativePage() {
           Learn with Alphonso vs. Busuu
         </h1>
         <p className="mt-4 text-ink-soft">
-          Busuu&apos;s community corrections are a genuinely different approach to feedback. Here&apos;s
-          how the two compare if what you want is AI conversation practice without a Premium Plus
-          upgrade.
+          Busuu&apos;s community corrections are a genuinely different approach to feedback.
+          Here&apos;s how the two compare if what you want is AI conversation practice without a
+          Premium Plus upgrade.
         </p>
         <CompareTable competitorName="Busuu" rows={ROWS} />
         <div className="mt-10">
-          <CTAButton href="https://learn.alphonsoecosystem.app/auth" external trackEvent="start_learning_click">
+          <CTAButton
+            href="https://learn.alphonsoecosystem.app/auth"
+            external
+            trackEvent="start_learning_click"
+          >
             Try Learn with Alphonso free
           </CTAButton>
         </div>

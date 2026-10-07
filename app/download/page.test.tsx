@@ -31,17 +31,25 @@ describe("Download page", () => {
     expect(screen.getByText(/3 people already waiting/i)).toBeInTheDocument();
   });
 
-  it("offers a direct TestFlight beta join link alongside the waitlist", async () => {
+  it("does not push a TestFlight beta", async () => {
     render(await DownloadPage());
-    const testflightLink = screen.getByRole("link", { name: /join the testflight beta/i });
-    expect(testflightLink).toHaveAttribute("href", "https://testflight.apple.com/join/awk9cvNQ");
-    expect(testflightLink).toHaveAttribute("target", "_blank");
+    expect(screen.queryByRole("link", { name: /testflight/i })).not.toBeInTheDocument();
+    expect(screen.queryByText(/testflight|beta/i)).not.toBeInTheDocument();
   });
 
-  it("presents TestFlight as the primary iOS action, waitlist as the fallback", async () => {
+  it("says the iPhone app is coming to the App Store and offers the launch email", async () => {
     render(await DownloadPage());
-    const testflightLink = screen.getByRole("link", { name: /join the testflight beta/i });
-    expect(testflightLink.className).toContain("from-coral");
-    expect(screen.getByText(/not ready to install a beta/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("heading", { name: /coming soon to the app store/i }),
+    ).toBeInTheDocument();
+    expect(screen.getByText(/tell you the day it's available/i)).toBeInTheDocument();
+    expect(screen.getByLabelText(/email address/i)).toBeInTheDocument();
+  });
+
+  it("does not show an App Store badge before launch", async () => {
+    render(await DownloadPage());
+    expect(
+      screen.queryByRole("link", { name: /download on the app store/i }),
+    ).not.toBeInTheDocument();
   });
 });

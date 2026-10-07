@@ -60,7 +60,7 @@ export function Footer() {
           </div>
         </div>
         <p className="mt-10 text-xs text-ink-soft">
-          © {new Date().getFullYear()} Obsidian Media. All rights reserved.
+          © {new Date().getFullYear()} Shayan Salimi (Obsidian Media). All rights reserved.
         </p>
       </div>
     </footer>
