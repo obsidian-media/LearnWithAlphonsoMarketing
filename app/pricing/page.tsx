@@ -6,7 +6,8 @@ import { MascotPortraitCard } from "@/components/shared/MascotPortraitCard";
 
 export const metadata: Metadata = {
   title: "Pricing",
-  description: "Learn with Alphonso is free. Hector, a second AI tutor mode, is coming soon.",
+  description:
+    "Learn with Alphonso is free. Alphonso Pro adds Hector, a personal AI voice tutor, as an optional monthly subscription in the iOS app.",
 };
 
 const FREE_FEATURES = [
@@ -16,13 +17,11 @@ const FREE_FEATURES = [
   "Streaks, hearts, leagues, and achievements",
 ];
 
-// Real, shipped specifics (confirmed in the app's own CHANGELOG), not
-// invented -- Hector's persona-memory feature is genuinely built even
-// though the tier itself isn't purchasable yet.
+// Shipped behaviour only: see LearnWithAlphonso PaywallView copy.
 const HECTOR_FEATURES = [
-  { icon: MicIcon, text: "A dedicated second AI conversation mode, with its own voice backend" },
-  { icon: BookIcon, text: "Remembers your CEFR level and what you're working on between sessions" },
-  { icon: TrophyIcon, text: "Priority access the moment it's purchasable" },
+  { icon: MicIcon, text: "Voice conversations with Hector, a personal AI tutor" },
+  { icon: BookIcon, text: "Remembers your level and the mistakes you make most between sessions" },
+  { icon: TrophyIcon, text: "Everything in Free stays free" },
 ];
 
 export default function PricingPage() {
@@ -55,19 +54,19 @@ export default function PricingPage() {
 
           <div className="relative rounded-3xl border border-ink/8 bg-royal p-8 text-white">
             <span className="absolute right-6 top-6 rounded-full bg-amber px-3 py-1 text-xs font-bold uppercase tracking-wide text-royal-deep">
-              Coming soon
+              In the iOS app
             </span>
             <div className="mb-6 w-40">
               <MascotPortraitCard
                 src="/mascot/hector-portrait.png"
-                alt="Hector, the Pro AI tutor, wearing AR goggles in a grand library"
+                alt="Hector, the AI tutor in Alphonso Pro, wearing AR goggles in a grand library"
                 name="Hector"
                 tagline="Your Pro AI tutor"
                 tone="royal"
               />
             </div>
-            <h2 className="font-display text-2xl font-semibold">Hector Pro</h2>
-            <p className="mt-1 text-3xl font-semibold">$9.99/mo</p>
+            <h2 className="font-display text-2xl font-semibold">Alphonso Pro</h2>
+            <p className="mt-1 text-3xl font-semibold">$9.99/month</p>
             <ul className="mt-6 space-y-3 text-sm text-white/80">
               {HECTOR_FEATURES.map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-start gap-2">
@@ -76,8 +75,10 @@ export default function PricingPage() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-xs text-white/60">
-              Not purchasable yet — we&apos;ll announce it here first.
+            <p className="mt-6 text-xs text-white/60">2-week free trial for new subscribers.</p>
+            <p className="mt-1 text-xs text-white/60">
+              Subscribe in the iOS app. Billed through your Apple Account; renews monthly until you
+              cancel. Local prices are shown in the App Store.
             </p>
           </div>
         </div>
