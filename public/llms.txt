@@ -23,13 +23,14 @@ by Obsidian Media.
 
 ## Platforms
 - Web app: free, works in any browser, no download — https://learn.alphonsoecosystem.app
-- iOS app: in TestFlight beta — https://testflight.apple.com/join/awk9cvNQ
+- iOS app: coming soon to the App Store
 
 ## Pricing
 - Free tier: full curriculum, AI conversation practice, spaced repetition,
   gamification
-- Hector Pro ($9.99/month): a second AI tutor mode with cross-session
-  memory — not purchasable yet
+- Alphonso Pro ($9.99/month in the iOS app, 2-week free trial for new
+  subscribers): adds Hector, a personal AI voice tutor that remembers your
+  level and weak spots
 
 ## Links
 - Features: https://discover.alphonsoecosystem.app/features

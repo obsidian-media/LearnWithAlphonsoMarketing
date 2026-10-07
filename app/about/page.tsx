@@ -59,8 +59,8 @@ export default function AboutPage() {
             />
           </div>
           <p className="max-w-xl text-ink-soft">
-            Alphonso is a confident, sunglasses-wearing llama who believes a language sticks best
-            in small, honest reps — not marathon cram sessions. Learn with Alphonso is built by{" "}
+            Alphonso is a confident, sunglasses-wearing llama who believes a language sticks best in
+            small, honest reps — not marathon cram sessions. Learn with Alphonso is built by{" "}
             <strong className="text-ink">Obsidian Media</strong> around that idea: bite-size
             lessons, real spaced repetition, and gamification that respects your time instead of
             manipulating it.
@@ -79,10 +79,11 @@ export default function AboutPage() {
             />
           </div>
           <p className="max-w-xl text-ink-soft">
-            Where Alphonso keeps you moving through lessons, Hector is the deep-focus tutor mode:
-            a second AI conversation partner who remembers your CEFR level and what you&apos;re
+            Where Alphonso keeps you moving through lessons, Hector is the deep-focus tutor mode: a
+            second AI conversation partner who remembers your CEFR level and what you&apos;re
             working on between sessions. He&apos;s part of{" "}
-            <strong className="text-ink">Hector Pro</strong>, not purchasable yet — see{" "}
+            <strong className="text-ink">Alphonso Pro</strong>, an optional subscription in the iOS
+            app. See{" "}
             <Link href="/pricing" className="underline hover:text-coral">
               Pricing
             </Link>{" "}

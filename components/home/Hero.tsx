@@ -32,13 +32,8 @@ export function Hero() {
             >
               Start learning free
             </CTAButton>
-            <CTAButton
-              href="https://testflight.apple.com/join/awk9cvNQ"
-              external
-              variant="secondary"
-              trackEvent="testflight_click"
-            >
-              🦙 Join the TestFlight beta
+            <CTAButton href="/download" variant="secondary" trackEvent="get_iphone_app_click">
+              🦙 iPhone app: coming soon
             </CTAButton>
           </div>
         </motion.div>

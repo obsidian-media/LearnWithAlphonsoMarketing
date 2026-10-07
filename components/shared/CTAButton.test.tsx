@@ -34,7 +34,7 @@ describe("CTAButton", () => {
 
   it("applies inverted secondary styling for use on dark backgrounds", () => {
     render(
-      <CTAButton href="https://testflight.apple.com/join/example" variant="secondary-inverted" external>
+      <CTAButton href="https://example.com/beta" variant="secondary-inverted" external>
         Join the beta
       </CTAButton>,
     );

@@ -14,4 +14,9 @@ describe("Footer", () => {
       "https://learn.alphonsoecosystem.app/terms",
     );
   });
+
+  it("names the operator in the copyright line", () => {
+    render(<Footer />);
+    expect(screen.getByText(/© \d{4} Shayan Salimi \(Obsidian Media\)\./)).toBeInTheDocument();
+  });
 });

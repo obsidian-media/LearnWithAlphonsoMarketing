@@ -11,7 +11,7 @@ import { WaitlistCount } from "@/components/download/WaitlistCount";
 
 export const metadata: Metadata = {
   title: "Download",
-  description: "Start learning on the web today, or join the iOS TestFlight beta.",
+  description: "Start learning on the web today. The iPhone app is coming soon to the App Store.",
 };
 
 // Without this, Next.js would statically prerender this page once at build
@@ -57,37 +57,32 @@ export default async function DownloadPage() {
       </ContentSection>
 
       <ContentSection
-        eyebrow="In TestFlight beta"
-        title="Try iOS now, or get notified at launch"
+        eyebrow="iPhone app"
+        title="Coming soon to the App Store"
         tone="royal"
         visual={<GamificationMockup />}
       >
         <div className="max-w-md">
           <p className="text-sm text-white/80">
-            Learn with Alphonso is in TestFlight beta on iOS right now. Sign in with Apple or
-            Google — no new password to remember — and join with the link below.
+            The iPhone app is on its way to the App Store. Leave your email and we&apos;ll tell you
+            the day it&apos;s available. Until then, the web app has the full course, review,
+            conversation practice, leagues and teams.
           </p>
           <div className="mt-5">
-            <CTAButton
-              href="https://testflight.apple.com/join/awk9cvNQ"
-              external
-              variant="primary"
-              trackEvent="testflight_click"
-            >
-              Join the TestFlight beta
-            </CTAButton>
+            <WaitlistForm />
           </div>
-          <div className="mt-8">
-            <p className="text-xs text-white/60">
-              Not ready to install a beta? Leave your email and we&apos;ll let you know when
-              it&apos;s out of beta instead.
-            </p>
-            <div className="mt-3">
-              <WaitlistForm />
-            </div>
-            <div className="mt-4">
-              <WaitlistCount count={waitlistCount} />
-            </div>
+          <p className="mt-3 text-xs text-white/60">
+            We use your email only to tell you about the launch. See our{" "}
+            <a
+              href="https://learn.alphonsoecosystem.app/privacy"
+              className="underline hover:text-white"
+            >
+              Privacy Policy
+            </a>
+            .
+          </p>
+          <div className="mt-4">
+            <WaitlistCount count={waitlistCount} />
           </div>
         </div>
       </ContentSection>
