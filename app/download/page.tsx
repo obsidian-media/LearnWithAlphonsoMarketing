@@ -71,6 +71,16 @@ export default async function DownloadPage() {
           <div className="mt-5">
             <WaitlistForm />
           </div>
+          <p className="mt-3 text-xs text-white/60">
+            We use your email only to tell you about the launch. See our{" "}
+            <a
+              href="https://learn.alphonsoecosystem.app/privacy"
+              className="underline hover:text-white"
+            >
+              Privacy Policy
+            </a>
+            .
+          </p>
           <div className="mt-4">
             <WaitlistCount count={waitlistCount} />
           </div>

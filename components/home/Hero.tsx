@@ -33,7 +33,7 @@ export function Hero() {
               Start learning free
             </CTAButton>
             <CTAButton href="/download" variant="secondary" trackEvent="get_iphone_app_click">
-              🦙 Get the iPhone app
+              🦙 iPhone app: coming soon
             </CTAButton>
           </div>
         </motion.div>

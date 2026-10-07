@@ -52,4 +52,15 @@ describe("Download page", () => {
       screen.queryByRole("link", { name: /download on the app store/i }),
     ).not.toBeInTheDocument();
   });
+
+  it("says what the waitlist email is used for and links the Privacy Policy", async () => {
+    render(await DownloadPage());
+    expect(
+      screen.getByText(/we use your email only to tell you about the launch/i),
+    ).toBeInTheDocument();
+    expect(screen.getByRole("link", { name: /privacy policy/i })).toHaveAttribute(
+      "href",
+      "https://learn.alphonsoecosystem.app/privacy",
+    );
+  });
 });

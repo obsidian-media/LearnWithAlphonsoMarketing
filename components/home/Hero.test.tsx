@@ -14,7 +14,7 @@ describe("Hero", () => {
 
   it("points iPhone users to the download page, with no TestFlight link and no badge before launch", () => {
     render(<Hero />);
-    const cta = screen.getByRole("link", { name: /get the iphone app/i });
+    const cta = screen.getByRole("link", { name: /iphone app: coming soon/i });
     expect(cta).toHaveAttribute("href", "/download");
     expect(cta).not.toHaveAttribute("target");
     expect(screen.queryByRole("link", { name: /testflight/i })).not.toBeInTheDocument();

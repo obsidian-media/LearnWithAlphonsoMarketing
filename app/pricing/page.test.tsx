@@ -23,6 +23,13 @@ describe("Pricing page", () => {
     expect(screen.getByText(/local prices are shown in the app store/i)).toBeInTheDocument();
   });
 
+  it("says Pro can be bought once the iOS app launches, not today", () => {
+    render(<PricingPage />);
+    expect(screen.getByText("Launching on iOS")).toBeInTheDocument();
+    expect(screen.getByText(/subscribe in the ios app once it launches/i)).toBeInTheDocument();
+    expect(String(metadata.description)).toMatch(/once the iOS app launches/);
+  });
+
   it("has metadata that no longer says coming soon", () => {
     expect(String(metadata.description)).not.toMatch(/coming soon/i);
     expect(String(metadata.description)).toMatch(/Alphonso Pro/);

@@ -7,7 +7,7 @@ import { MascotPortraitCard } from "@/components/shared/MascotPortraitCard";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Learn with Alphonso is free. Alphonso Pro adds Hector, a personal AI voice tutor, as an optional monthly subscription in the iOS app.",
+    "Learn with Alphonso is free. Alphonso Pro adds Hector, a personal AI voice tutor, as an optional monthly subscription once the iOS app launches.",
 };
 
 const FREE_FEATURES = [
@@ -54,7 +54,7 @@ export default function PricingPage() {
 
           <div className="relative rounded-3xl border border-ink/8 bg-royal p-8 text-white">
             <span className="absolute right-6 top-6 rounded-full bg-amber px-3 py-1 text-xs font-bold uppercase tracking-wide text-royal-deep">
-              In the iOS app
+              Launching on iOS
             </span>
             <div className="mb-6 w-40">
               <MascotPortraitCard
@@ -77,8 +77,8 @@ export default function PricingPage() {
             </ul>
             <p className="mt-6 text-xs text-white/60">2-week free trial for new subscribers.</p>
             <p className="mt-1 text-xs text-white/60">
-              Subscribe in the iOS app. Billed through your Apple Account; renews monthly until you
-              cancel. Local prices are shown in the App Store.
+              Subscribe in the iOS app once it launches. Billed through your Apple Account; renews
+              monthly until you cancel. Local prices are shown in the App Store.
             </p>
           </div>
         </div>
