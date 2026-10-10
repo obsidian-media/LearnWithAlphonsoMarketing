@@ -41,7 +41,7 @@ describe("Features page", () => {
 
   it("describes hearts, leagues, themes and languages as they actually work", () => {
     render(<FeaturesPage />);
-    expect(screen.getByText(/refill 30 minutes after you run out/i)).toBeInTheDocument();
+    expect(screen.getByText(/refill completely 30 minutes after you run out/i)).toBeInTheDocument();
     expect(screen.queryByText(/Bronze through Diamond/)).not.toBeInTheDocument();
     expect(screen.getByText(/Five league tiers/)).toBeInTheDocument();
     expect(screen.getByText(/Canopy, Meadow, Studio Ink or Manuscript/)).toBeInTheDocument();

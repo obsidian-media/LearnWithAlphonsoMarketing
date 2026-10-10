@@ -79,7 +79,7 @@ const PRACTICE = [
 const SOCIAL = [
   {
     title: "Gamification",
-    description: "XP, streaks, streak freezes and hearts. Hearts refill 30 minutes after you run out, and a perfect lesson earns one back.",
+    description: "XP, streaks, streak freezes and hearts. Hearts refill completely 30 minutes after you run out, and a perfect score on a lesson you haven't aced before earns one back.",
     icon: <FlameIcon className="size-5" />,
   },
   {

@@ -27,7 +27,7 @@ export function ThemesTeaser() {
       description="Switch between Canopy, Meadow, Studio Ink and Manuscript any time, and your pick syncs across devices. Try one below."
     >
       <div className="grid gap-8 sm:grid-cols-[1fr_1fr]">
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 self-start sm:gap-4">
+        <div className="grid grid-cols-2 gap-3 lg:grid-cols-4 self-start sm:gap-4">
           {THEMES.map((t, index) => (
             <button
               key={t.name}
