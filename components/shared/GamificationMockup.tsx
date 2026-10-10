@@ -15,7 +15,7 @@ export function GamificationMockup() {
           <FlameIcon className="size-4" />
           12-day streak
         </span>
-        <span className="text-xs font-semibold text-ink-soft">Diamond league</span>
+        <span className="text-xs font-semibold text-ink-soft">Top league</span>
       </div>
       <ul className="mt-4 space-y-2">
         {ROWS.map((row) => (

@@ -37,6 +37,8 @@ const BANNED: { label: string; re: RegExp }[] = [
   { label: "Pro tier coming", re: /Pro tier coming/i },
   { label: "Hector coming soon", re: /Hector[^.]{0,120}coming soon|coming soon[^.]{0,120}Hector/i },
   { label: "old product name", re: /Hector Pro/ },
+  { label: "stale league tier names", re: /Bronze (through|to) Diamond/i },
+  { label: "overclaimed question formats", re: /every question type|6 question formats|sentence reordering/i },
 ];
 
 describe("pre-launch claims guard", () => {

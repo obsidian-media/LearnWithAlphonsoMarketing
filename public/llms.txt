@@ -8,12 +8,11 @@ by Obsidian Media.
 ## Courses
 - English, French, and Spanish, each with 5 CEFR levels (A1 through C1)
 - 1,767 lessons total (609 English / 575 French / 583 Spanish), 8,886
-  questions across 6 formats: multiple choice, fill-in-the-blank, sentence
-  reordering, listening comprehension, speaking practice, free-form
-  translation
+  questions across 5 formats: multiple choice, fill-in-the-blank, listening
+  comprehension, speaking practice, free-form translation
 
 ## Practice
-- 12 AI-guided roleplay scenarios (voice or text), adaptive to CEFR level
+- 12 AI-guided roleplay scenarios in English, French and Spanish (voice or text), adaptive to CEFR level; AI features need the learner's consent
 - Spaced repetition review queue (SM-2-style algorithm)
 
 ## Listen

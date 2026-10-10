@@ -8,8 +8,9 @@ import { ContentSection } from "../shared/ContentSection";
 // ink-on-surface is ever used for text (both verified light/dark pairs);
 // each theme's accent color is decorative-only (a swatch dot, never text),
 // since it wasn't worth re-deriving exact contrast-safe text pairings for
-// three different accent hues on a teaser section.
+// four different accent hues on a teaser section.
 const THEMES = [
+  { name: "Canopy", surface: "#effaf4", ink: "#05261a", accent: "#0c6944" },
   { name: "Meadow", surface: "#f4efe3", ink: "#23352a", accent: "#5c7a5c" },
   { name: "Studio Ink", surface: "#1f2436", ink: "#f2eee2", accent: "#4a6fd4" },
   { name: "Manuscript", surface: "#f6f5f4", ink: "#25242b", accent: "#7a2733" },
@@ -22,11 +23,11 @@ export function ThemesTeaser() {
   return (
     <ContentSection
       eyebrow="Make it yours"
-      title="Three themes, one you"
-      description="Switch between Meadow, Studio Ink, and Manuscript any time — your pick syncs across devices. Try one below."
+      title="Four themes, one you"
+      description="Switch between Canopy, Meadow, Studio Ink and Manuscript any time, and your pick syncs across devices. Try one below."
     >
       <div className="grid gap-8 sm:grid-cols-[1fr_1fr]">
-        <div className="grid grid-cols-3 gap-3 self-start sm:gap-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 self-start sm:gap-4">
           {THEMES.map((t, index) => (
             <button
               key={t.name}
