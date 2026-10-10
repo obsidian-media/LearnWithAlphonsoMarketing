@@ -26,11 +26,27 @@ describe("Features page", () => {
     expect(screen.getByRole("heading", { name: "Season ladder", level: 3 })).toBeInTheDocument();
   });
 
-  it("states the current, correct lesson counts and question formats", () => {
+  // Numbers re-derived from the shipped app's curriculum files on 2026-10-09.
+  // Re-derive whenever the lesson content changes.
+  it("states lesson counts and formats that match the shipped curriculum", () => {
     render(<FeaturesPage />);
-    expect(screen.getByText(/609 English lessons/)).toBeInTheDocument();
-    expect(screen.getByText(/6 question formats/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/609 English lessons, 575 French lessons and 583 Spanish lessons/),
+    ).toBeInTheDocument();
+    expect(screen.getByText("5 question formats")).toBeInTheDocument();
+    expect(screen.queryByText(/every question type/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/sentence reordering/i)).not.toBeInTheDocument();
     expect(screen.queryByText(/image matching/)).not.toBeInTheDocument();
+  });
+
+  it("describes hearts, leagues, themes and languages as they actually work", () => {
+    render(<FeaturesPage />);
+    expect(screen.getByText(/refill completely 30 minutes after you run out/i)).toBeInTheDocument();
+    expect(screen.queryByText(/Bronze through Diamond/)).not.toBeInTheDocument();
+    expect(screen.getByText(/Five league tiers/)).toBeInTheDocument();
+    expect(screen.getByText(/Canopy, Meadow, Studio Ink or Manuscript/)).toBeInTheDocument();
+    expect(screen.getByText(/in English, French and Spanish, by voice or text/i)).toBeInTheDocument();
+    expect(screen.getByText(/only after you allow them/i)).toBeInTheDocument();
   });
 
   it("has a Listen section with a stable deep-link id", () => {

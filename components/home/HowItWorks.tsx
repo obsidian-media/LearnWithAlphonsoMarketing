@@ -20,7 +20,7 @@ const STEPS = [
   },
   {
     title: "Keep your streak alive",
-    description: "Hearts, streak freezes, and weekly leagues make consistency feel good.",
+    description: "Hearts, streak freezes, leagues and weekly leaderboards make consistency feel good.",
     icon: <FlameIcon className="size-5" />,
   },
 ];

@@ -2,10 +2,8 @@ import { AnimatedCounter } from "../shared/AnimatedCounter";
 
 // Per-course stats (609 English / 575 French / 583 Spanish) would need a
 // new line here every time a course grows or a new one ships -- rolling up
-// to total lessons + language count scales without a rewrite. All three
-// courses reached full question-type parity (mc/fill/reorder/listening/
-// speak/translate) by 2026-09-25 -- verified against LearnWithAlphonso's
-// README content table on 2026-09-27.
+// to total lessons + language count scales without a rewrite.
+// Totals re-derived from the app's curriculum files on 2026-10-09.
 const STATS = [
   { value: 1767, unit: "total lessons" },
   { value: 3, unit: "languages" },

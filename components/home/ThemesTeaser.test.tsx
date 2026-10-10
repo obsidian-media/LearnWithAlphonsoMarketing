@@ -4,8 +4,9 @@ import { describe, it, expect } from "vitest";
 import { ThemesTeaser } from "./ThemesTeaser";
 
 describe("ThemesTeaser", () => {
-  it("names all three in-app themes as swatch buttons", () => {
+  it("names all four in-app themes as swatch buttons", () => {
     render(<ThemesTeaser />);
+    expect(screen.getByRole("button", { name: /Canopy/ })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Meadow/ })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Studio Ink/ })).toBeInTheDocument();
     expect(screen.getByRole("button", { name: /Manuscript/ })).toBeInTheDocument();
@@ -15,9 +16,9 @@ describe("ThemesTeaser", () => {
     const user = userEvent.setup();
     render(<ThemesTeaser />);
 
-    // Meadow is selected by default -- its name appears in both the swatch
+    // Canopy is selected by default -- its name appears in both the swatch
     // button and the preview panel.
-    expect(screen.getAllByText("Meadow")).toHaveLength(2);
+    expect(screen.getAllByText("Canopy")).toHaveLength(2);
 
     await user.click(screen.getByRole("button", { name: /Manuscript/ }));
 

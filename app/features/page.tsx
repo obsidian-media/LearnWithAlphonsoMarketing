@@ -33,13 +33,13 @@ const CURRICULUM = [
   {
     title: "Three courses",
     description:
-      "609 English lessons, 575 French lessons, and 583 Spanish lessons — all three at full A1–C1 depth with every question type.",
+      "609 English lessons, 575 French lessons and 583 Spanish lessons, all from A1 to C1.",
     icon: <BookIcon className="size-5" />,
   },
   {
-    title: "6 question formats",
+    title: "5 question formats",
     description:
-      "Multiple choice, fill-in-the-blank, sentence reordering, listening comprehension, speaking practice, and free-form translation.",
+      "Multiple choice, fill-in-the-blank, listening comprehension, speaking practice and free-form translation, in all three courses.",
     icon: <PaletteIcon className="size-5" />,
   },
   {
@@ -53,7 +53,7 @@ const PRACTICE = [
   {
     title: "AI conversation practice",
     description:
-      "12 roleplay scenarios by voice or text, with clarity feedback on your spoken answers and difficulty that adapts to your CEFR level.",
+      "12 roleplay scenarios in English, French and Spanish, by voice or text, with clarity feedback on your spoken answers and difficulty that adapts to your CEFR level. AI features run only after you allow them.",
     icon: <MicIcon className="size-5" />,
   },
   {
@@ -79,12 +79,12 @@ const PRACTICE = [
 const SOCIAL = [
   {
     title: "Gamification",
-    description: "XP, streaks, streak freezes, and hearts that regenerate as you play.",
+    description: "XP, streaks, streak freezes and hearts. Hearts refill completely 30 minutes after you run out, and a perfect score on a lesson you haven't aced before earns one back.",
     icon: <FlameIcon className="size-5" />,
   },
   {
     title: "Leagues",
-    description: "Bronze through Diamond, with global, friends, and country leaderboards.",
+    description: "Five league tiers, with global, friends and country leaderboards.",
     icon: <TrophyIcon className="size-5" />,
   },
   {
@@ -94,7 +94,7 @@ const SOCIAL = [
   },
   {
     title: "Themes",
-    description: "Meadow, Studio Ink, or Manuscript — pick the look that fits you.",
+    description: "Canopy, Meadow, Studio Ink or Manuscript: pick the look that fits you.",
     icon: <PaletteIcon className="size-5" />,
   },
 ];
