@@ -6,7 +6,7 @@ describe("Hero", () => {
   it("renders the headline, subhead and primary CTA", () => {
     render(<Hero />);
     expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(
-      "Learn English, French or Spanish in 5 minutes a day",
+      "Learn English, French or Spanish in a few minutes a day",
     );
     expect(screen.getByText(/level test that finds your starting point \(A1 to C1\)/)).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /start learning free/i })).toHaveAttribute(

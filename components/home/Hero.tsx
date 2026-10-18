@@ -19,7 +19,7 @@ export function Hero() {
             English, French &amp; Spanish, free
           </p>
           <h1 className="mt-3 text-balance font-display text-5xl font-semibold leading-[1.05] text-ink sm:text-6xl">
-            Learn English, French or Spanish in 5 minutes a day
+            Learn English, French or Spanish in a few minutes a day
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
             1,800+ short lessons, a level test that finds your starting point (A1 to C1), and a

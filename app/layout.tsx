@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Learn With Alphonso",
   },
   description:
-    "Learn English, French or Spanish in 5 minutes a day. 1,800+ short lessons, a free level test (A1 to C1) and a daily review of the words you are about to forget. Free on the web, iPhone beta open.",
+    "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test (A1 to C1) and a daily review of the words you are about to forget. Free on the web, iPhone beta open.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Learn With Alphonso: Learn English, French and Spanish",
     description:
-      "Learn English, French or Spanish in 5 minutes a day. 1,800+ short lessons, a free level test and a daily review. Free on the web, iPhone beta open.",
+      "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test and a daily review. Free on the web, iPhone beta open.",
     siteName: "Learn With Alphonso",
     images: [
       {
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Learn With Alphonso: Learn English, French and Spanish",
     description:
-      "Learn English, French or Spanish in 5 minutes a day. 1,800+ short lessons, a free level test and a daily review. Free on the web, iPhone beta open.",
+      "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test and a daily review. Free on the web, iPhone beta open.",
     images: ["/og-image.png"],
   },
 };
