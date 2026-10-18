@@ -44,6 +44,11 @@ const BANNED: { label: string; re: RegExp }[] = [
   { label: "Pro mentioned (not purchasable yet)", re: /\bPro\b/ },
   { label: "the Alphonso Pro price", re: /\$\s?9\.99/ },
   { label: "a web sign-up link without attribution (use START_LEARNING_URL)", re: /learn\.alphonsoecosystem\.app\/auth(?!\?utm_source=site)/ },
+  // Competitor facts are unsourced and go stale: no prices, language counts or tier gating.
+  {
+    label: "an unsourced competitor price or language count",
+    re: /~\s?\$\s?\d|\b\d+\+? languages\b|\(\d+\+ languages\)|Premium Plus|Super subscription/,
+  },
   { label: "No sign-up needed", re: /no sign-?up (needed|required)/i },
   { label: "Duolingo comparison claim", re: /different from Duolingo/i },
   // Re-derived from the app's curriculum on 2026-10-18: 609 EN / 611 FR / 610 ES.
