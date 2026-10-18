@@ -27,7 +27,7 @@ export function CTAButton({
     "inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 hover:scale-[1.03] active:scale-[0.98]";
   const styles =
     variant === "primary"
-      ? "bg-gradient-to-r from-coral to-amber text-white shadow-sm hover:shadow-md hover:opacity-95"
+      ? "bg-gradient-to-r from-coral to-amber text-ink shadow-sm hover:shadow-md hover:opacity-95"
       : variant === "secondary-inverted"
         ? "border border-white/30 text-white hover:bg-white/10"
         : "border border-ink/15 text-ink hover:bg-ink/5";
