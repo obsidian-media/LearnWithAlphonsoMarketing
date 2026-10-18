@@ -3,7 +3,7 @@ import { SectionHeading } from "./SectionHeading";
 const FAQS = [
   {
     q: "Is Learn with Alphonso free?",
-    a: "Yes. The full curriculum, AI conversation practice, spaced repetition review and gamification are free.",
+    a: "Yes. The full curriculum, AI conversation practice (12 roleplay scenarios), spaced repetition review and gamification are free.",
   },
   {
     q: "What languages can I learn?",
