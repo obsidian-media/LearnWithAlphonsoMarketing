@@ -7,7 +7,7 @@ by Obsidian Media.
 
 ## Courses
 - English, French, and Spanish, each with 5 CEFR levels (A1 through C1)
-- 1,767 lessons total (609 English / 575 French / 583 Spanish), 8,886
+- 1,830 lessons total (609 English / 611 French / 610 Spanish), 9,201
   questions across 5 formats: multiple choice, fill-in-the-blank, listening
   comprehension, speaking practice, free-form translation
 
@@ -22,14 +22,12 @@ by Obsidian Media.
 
 ## Platforms
 - Web app: free, works in any browser, no download — https://learn.alphonsoecosystem.app
-- iOS app: coming soon to the App Store
+- iPhone: public beta through TestFlight, free to join -- https://testflight.apple.com/join/AVAgvB3y
+- Android: planned for later
 
 ## Pricing
-- Free tier: full curriculum, AI conversation practice, spaced repetition,
+- Free: full curriculum, AI conversation practice, spaced repetition,
   gamification
-- Alphonso Pro ($9.99/month in the iOS app, 2-week free trial for new
-  subscribers): adds Hector, a personal AI voice tutor that remembers your
-  level and weak spots
 
 ## Links
 - Features: https://discover.alphonsoecosystem.app/features

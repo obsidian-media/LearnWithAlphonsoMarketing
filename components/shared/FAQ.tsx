@@ -3,19 +3,23 @@ import { SectionHeading } from "./SectionHeading";
 const FAQS = [
   {
     q: "Is Learn with Alphonso free?",
-    a: "Yes: the full curriculum, AI conversation practice, spaced repetition review and gamification are free. Alphonso Pro, an optional $9.99/month subscription in the iOS app, adds Hector, a personal AI voice tutor.",
+    a: "Yes. The full curriculum, AI conversation practice, spaced repetition review and gamification are free.",
   },
   {
     q: "What languages can I learn?",
     a: "English, French, and Spanish, each with a full curriculum from A1 (beginner) to C1 (advanced).",
   },
   {
-    q: "Is there an iOS app?",
-    a: "The iPhone app is coming soon to the App Store. The web app works on any device today, free, with no download needed.",
+    q: "Is there an iPhone app?",
+    a: "An iPhone beta is open through TestFlight, free to join. The web app works on any device today with no download. Android is planned for later.",
   },
   {
-    q: "How is this different from Duolingo?",
-    a: "Bite-size lessons plus real AI conversation practice (voice or text, 12 roleplay scenarios) and a spaced repetition review queue built to make what you learn actually stick.",
+    q: "Do I need an account?",
+    a: "Yes, a free one. Sign up with your email (we send a confirmation link) or with Google, then take the level test and start your first lesson.",
+  },
+  {
+    q: "Is the AI chat optional? What does it send?",
+    a: "AI features run only after you allow them, and you can turn them off any time. When on, your conversation text and written answers go to NVIDIA for replies and grading, and your voice recordings go to Deepgram for speech recognition. Lessons, review and the level test keep working with AI off. The app is rated 13+. See the Privacy Policy for the full list.",
   },
   {
     q: "How does the spaced repetition review work?",

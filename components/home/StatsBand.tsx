@@ -1,11 +1,13 @@
 import { AnimatedCounter } from "../shared/AnimatedCounter";
 
-// Per-course stats (609 English / 575 French / 583 Spanish) would need a
+// Per-course stats (609 English / 611 French / 610 Spanish) would need a
 // new line here every time a course grows or a new one ships -- rolling up
 // to total lessons + language count scales without a rewrite.
-// Totals re-derived from the app's curriculum files on 2026-10-09.
+// Totals re-derived from the app's curriculum files on 2026-10-18 (the French
+// and Spanish courses grew since 2026-10-09). The hero says "1,800+" so a
+// small content change does not make it stale.
 const STATS = [
-  { value: 1767, unit: "total lessons" },
+  { value: 1830, unit: "total lessons" },
   { value: 3, unit: "languages" },
   { value: 5, unit: "CEFR levels, A1–C1" },
 ];

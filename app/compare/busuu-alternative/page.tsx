@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { CompareTable, type CompareRow } from "@/components/shared/CompareTable";
+import { START_LEARNING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "A Busuu Alternative With Free AI Conversation Practice",
@@ -15,7 +16,7 @@ const ROWS: CompareRow[] = [
   ["Community-corrected exercises", "No — AI-graded instead", "Yes"],
   ["CEFR-aligned curriculum", "Yes, A1–C1", "Yes"],
   ["Languages", "English, French, Spanish", "14"],
-  ["Price", "Free; optional Alphonso Pro ($9.99/month, iOS)", "Free tier + ~$6–8/month Premium"],
+  ["Price", "Free", "Free tier + ~$6–8/month Premium"],
 ];
 
 export default function BusuuAlternativePage() {
@@ -33,7 +34,7 @@ export default function BusuuAlternativePage() {
         <CompareTable competitorName="Busuu" rows={ROWS} />
         <div className="mt-10">
           <CTAButton
-            href="https://learn.alphonsoecosystem.app/auth"
+            href={START_LEARNING_URL}
             external
             trackEvent="start_learning_click"
           >

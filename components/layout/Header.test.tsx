@@ -10,6 +10,6 @@ describe("Header", () => {
     expect(screen.getByRole("link", { name: /download/i })).toHaveAttribute("href", "/download");
     expect(screen.getByRole("link", { name: /about/i })).toHaveAttribute("href", "/about");
     const cta = screen.getByRole("link", { name: /start learning free/i });
-    expect(cta).toHaveAttribute("href", "https://learn.alphonsoecosystem.app/auth");
+    expect(cta).toHaveAttribute("href", "https://learn.alphonsoecosystem.app/auth?utm_source=site&utm_medium=button&utm_campaign=beta1");
   });
 });

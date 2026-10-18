@@ -33,7 +33,7 @@ const CURRICULUM = [
   {
     title: "Three courses",
     description:
-      "609 English lessons, 575 French lessons and 583 Spanish lessons, all from A1 to C1.",
+      "609 English lessons, 611 French lessons and 610 Spanish lessons, all from A1 to C1.",
     icon: <BookIcon className="size-5" />,
   },
   {

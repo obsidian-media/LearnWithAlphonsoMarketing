@@ -4,15 +4,16 @@ import path from "node:path";
 import { describe, it, expect } from "vitest";
 
 /**
- * Pre-launch truth guard. The iOS app is going to the App Store, not
- * TestFlight, and Alphonso Pro is a real subscription. A
- * page that still pushes a beta or calls Pro "coming soon" contradicts the App
- * Store listing a reviewer may open. Scans every shipped source file, not one
- * page, because the same claims lived in Hero, FAQ, About, compare pages and
- * llms.txt.
+ * Truth guard. Since 2026-10-18 the site offers the iPhone beta through ONE
+ * TestFlight public link (the "Other" group, so the TestFlight counts show
+ * which visitors came from this site). The other group links belong to
+ * Reddit posts and must never appear here, and nothing may promise Alphonso
+ * Pro or a price while the Paid Apps Agreement is not Active. Scans every
+ * shipped source file, not one page, because the same claims lived in Hero,
+ * FAQ, About, compare pages and llms.txt.
  */
 const ROOT = process.cwd();
-const SCAN = ["app", "components", "public/llms.txt"];
+const SCAN = ["app", "components", "lib", "public/llms.txt"];
 const EXT = /\.(tsx?|mdx?|txt)$/;
 
 function files(rel: string): string[] {
@@ -30,10 +31,25 @@ const SOURCES = SCAN.flatMap(files).map((f) => ({
   text: readFileSync(path.join(ROOT, f), "utf8"),
 }));
 
+const BETA_LINK = "https://testflight.apple.com/join/AVAgvB3y";
+
 const BANNED: { label: string; re: RegExp }[] = [
-  { label: "TestFlight link", re: /testflight\.apple\.com/i },
-  { label: "TestFlight beta wording", re: /TestFlight/i },
-  { label: "Pro not purchasable", re: /(not|isn['’]t|isn&apos;t) purchasable/i },
+  {
+    label: "a TestFlight link other than the approved site group",
+    re: /testflight\.apple\.com\/join\/(?!AVAgvB3y\b)/i,
+  },
+  { label: "a TestFlight link with query tracking", re: /testflight\.apple\.com\/join\/\w+\?/i },
+  // Delete the Pro and price entries once the Paid Apps Agreement is Active
+  // and the owner approves purchase copy.
+  { label: "Pro mentioned (not purchasable yet)", re: /\bPro\b/ },
+  { label: "the Alphonso Pro price", re: /\$\s?9\.99/ },
+  { label: "a web sign-up link without attribution (use START_LEARNING_URL)", re: /learn\.alphonsoecosystem\.app\/auth(?!\?utm_source=site)/ },
+  { label: "No sign-up needed", re: /no sign-?up (needed|required)/i },
+  { label: "Duolingo comparison claim", re: /different from Duolingo/i },
+  // Re-derived from the app's curriculum on 2026-10-18: 609 EN / 611 FR / 610 ES.
+  { label: "stale lesson count", re: /\b1,?767\b/ },
+  { label: "stale per-language counts", re: /\b(575|583)\b/ },
+  { label: "stale English-only title", re: /English that actually sticks/i },
   { label: "Pro tier coming", re: /Pro tier coming/i },
   { label: "Hector coming soon", re: /Hector[^.]{0,120}coming soon|coming soon[^.]{0,120}Hector/i },
   { label: "old product name", re: /Hector Pro/ },
@@ -46,6 +62,11 @@ const BANNED: { label: string; re: RegExp }[] = [
 describe("pre-launch claims guard", () => {
   it("scans a non-trivial number of files", () => {
     expect(SOURCES.length).toBeGreaterThan(20);
+  });
+
+  it("links the iPhone beta somewhere, and only to the approved group", () => {
+    const hits = SOURCES.filter(({ text }) => text.includes(BETA_LINK)).map(({ file }) => file);
+    expect(hits.length).toBeGreaterThan(0);
   });
 
   it.each(BANNED)("no shipped file contains: $label", ({ re }) => {

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { CompareTable, type CompareRow } from "@/components/shared/CompareTable";
+import { START_LEARNING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "A Babbel Alternative With a Real Free Tier",
@@ -15,7 +16,7 @@ const ROWS: CompareRow[] = [
   ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Built into lesson flow"],
   ["CEFR-aligned curriculum", "Yes, A1–C1", "Yes, A1–B2"],
   ["Languages", "English, French, Spanish", "14"],
-  ["Price", "Free; optional Alphonso Pro ($9.99/month, iOS)", "~$9–18/month subscription"],
+  ["Price", "Free", "~$9–18/month subscription"],
 ];
 
 export default function BabbelAlternativePage() {
@@ -33,7 +34,7 @@ export default function BabbelAlternativePage() {
         <CompareTable competitorName="Babbel" rows={ROWS} />
         <div className="mt-10">
           <CTAButton
-            href="https://learn.alphonsoecosystem.app/auth"
+            href={START_LEARNING_URL}
             external
             trackEvent="start_learning_click"
           >

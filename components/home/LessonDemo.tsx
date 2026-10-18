@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { CTAButton } from "../shared/CTAButton";
+import { START_LEARNING_URL } from "@/lib/links";
 
 type Question = { prompt: string; options: string[]; answer: string };
 
@@ -127,7 +128,7 @@ export function LessonDemo() {
       <div className="mt-6">
         {selected ? (
           isLast ? (
-            <CTAButton href="https://learn.alphonsoecosystem.app/auth" external className="w-full">
+            <CTAButton href={START_LEARNING_URL} external className="w-full">
               Start real lessons free
             </CTAButton>
           ) : (

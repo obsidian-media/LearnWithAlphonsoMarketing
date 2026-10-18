@@ -26,12 +26,12 @@ describe("Features page", () => {
     expect(screen.getByRole("heading", { name: "Season ladder", level: 3 })).toBeInTheDocument();
   });
 
-  // Numbers re-derived from the shipped app's curriculum files on 2026-10-09.
+  // Numbers re-derived from the shipped app's curriculum files on 2026-10-18.
   // Re-derive whenever the lesson content changes.
   it("states lesson counts and formats that match the shipped curriculum", () => {
     render(<FeaturesPage />);
     expect(
-      screen.getByText(/609 English lessons, 575 French lessons and 583 Spanish lessons/),
+      screen.getByText(/609 English lessons, 611 French lessons and 610 Spanish lessons/),
     ).toBeInTheDocument();
     expect(screen.getByText("5 question formats")).toBeInTheDocument();
     expect(screen.queryByText(/every question type/i)).not.toBeInTheDocument();

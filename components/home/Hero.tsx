@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { CTAButton } from "../shared/CTAButton";
 import { MascotFloat } from "../shared/MascotFloat";
+import { IPHONE_BETA_URL, START_LEARNING_URL } from "@/lib/links";
 
 export function Hero() {
   return (
@@ -15,27 +16,31 @@ export function Hero() {
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-xs font-bold uppercase tracking-[0.2em] text-coral-deep">
-            English, French &amp; Spanish, one lesson at a time
+            English, French &amp; Spanish, free
           </p>
           <h1 className="mt-3 text-balance font-display text-5xl font-semibold leading-[1.05] text-ink sm:text-6xl">
-            Learn a language with lessons that actually stick.
+            Learn English, French or Spanish in 5 minutes a day
           </h1>
           <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-soft">
-            Bite-size lessons, AI conversation practice, and streaks that respect your time — with
-            Alphonso the llama cheering you on.
+            1,800+ short lessons, a level test that finds your starting point (A1 to C1), and a
+            daily review that brings back the words you&apos;re about to forget. Free.
           </p>
           <div className="mt-8 flex flex-wrap items-center gap-4">
-            <CTAButton
-              href="https://learn.alphonsoecosystem.app/auth"
-              external
-              trackEvent="start_learning_click"
-            >
+            <CTAButton href={START_LEARNING_URL} external trackEvent="start_learning_click">
               Start learning free
             </CTAButton>
-            <CTAButton href="/download" variant="secondary" trackEvent="get_iphone_app_click">
-              🦙 iPhone app: coming soon
+            <CTAButton
+              href={IPHONE_BETA_URL}
+              variant="secondary"
+              external
+              trackEvent="join_iphone_beta_click"
+            >
+              Join the iPhone beta
             </CTAButton>
           </div>
+          <p className="mt-3 text-sm text-ink-soft">
+            Free account with email or Google. iPhone beta via TestFlight. Android coming later.
+          </p>
         </motion.div>
 
         <motion.div

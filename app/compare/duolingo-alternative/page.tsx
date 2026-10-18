@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { CompareTable, type CompareRow } from "@/components/shared/CompareTable";
+import { START_LEARNING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "A Duolingo Alternative With Real Conversation Practice",
@@ -15,7 +16,7 @@ const ROWS: CompareRow[] = [
   ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Built into lesson flow"],
   ["Gamification (streaks, leagues, teams)", "Yes", "Yes"],
   ["Languages", "English, French, Spanish", "40+"],
-  ["Price", "Free; optional Alphonso Pro ($9.99/month, iOS)", "Free, Super subscription"],
+  ["Price", "Free", "Free, Super subscription"],
 ];
 
 export default function DuolingoAlternativePage() {
@@ -33,7 +34,7 @@ export default function DuolingoAlternativePage() {
         <CompareTable competitorName="Duolingo" rows={ROWS} />
         <div className="mt-10">
           <CTAButton
-            href="https://learn.alphonsoecosystem.app/auth"
+            href={START_LEARNING_URL}
             external
             trackEvent="start_learning_click"
           >
