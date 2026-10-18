@@ -32,7 +32,7 @@ export default function BabbelAlternativePage() {
         </p>
         <CompareTable competitorName="Babbel" rows={ROWS} />
         <p className="mt-4 text-sm text-ink-soft">
-          Competitor details are not verified here and change often. Check Babbel's site for its current
+          Competitor details are not verified here and change often. Check Babbel&apos;s site for its current
           features and pricing.
         </p>
         <div className="mt-10">

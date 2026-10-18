@@ -32,7 +32,7 @@ export default function DuolingoAlternativePage() {
         </p>
         <CompareTable competitorName="Duolingo" rows={ROWS} />
         <p className="mt-4 text-sm text-ink-soft">
-          Competitor details are not verified here and change often. Check Duolingo's site for its current
+          Competitor details are not verified here and change often. Check Duolingo&apos;s site for its current
           features and pricing.
         </p>
         <div className="mt-10">

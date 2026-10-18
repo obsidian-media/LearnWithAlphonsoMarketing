@@ -31,7 +31,7 @@ export default function BusuuAlternativePage() {
         </p>
         <CompareTable competitorName="Busuu" rows={ROWS} />
         <p className="mt-4 text-sm text-ink-soft">
-          Competitor details are not verified here and change often. Check Busuu's site for its current
+          Competitor details are not verified here and change often. Check Busuu&apos;s site for its current
           features and pricing.
         </p>
         <div className="mt-10">
