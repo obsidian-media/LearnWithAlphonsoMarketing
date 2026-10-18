@@ -5,7 +5,7 @@
 // To publish one: drop the file in public/screens/, then add an entry below.
 // Shot list (phone frame, light mode, demo account, no personal data):
 //   1. Level test result   2. A lesson mid-question   3. Review card (saved word)
-//   4. A Practice scenario conversation (free; not Hector, which is Pro)  5. Streak (not the league unless it has real entries)
+//   4. A Practice scenario conversation (not Hector)  5. Streak (not the league unless it has real entries)
 // Video: ~20 s, captions on, no voiceover. public/screens/demo.mp4 plus a poster image.
 
 export type AppScreen = {
