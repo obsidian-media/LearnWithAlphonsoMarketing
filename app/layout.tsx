@@ -42,6 +42,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/og-image.png",
+        width: 1200,
+        height: 630,
         alt: "Alphonso the llama, mascot of Learn With Alphonso",
       },
     ],
