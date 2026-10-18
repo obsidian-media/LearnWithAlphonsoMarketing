@@ -4,6 +4,7 @@ import { FeatureGrid, type FeatureItem } from "@/components/shared/FeatureGrid";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { LessonMockup } from "@/components/shared/LessonMockup";
 import { BookIcon, MicIcon, PaletteIcon } from "@/components/shared/icons";
+import { START_LEARNING_URL } from "@/lib/links";
 
 export const metadata: Metadata = {
   title: "Free CEFR Placement Test",
@@ -45,7 +46,7 @@ export default function PlacementTestPage() {
         </p>
         <div className="mt-6">
           <CTAButton
-            href="https://learn.alphonsoecosystem.app/auth"
+            href={START_LEARNING_URL}
             external
             trackEvent="start_learning_click"
           >

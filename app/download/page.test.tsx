@@ -21,7 +21,7 @@ describe("Download page", () => {
     render(await DownloadPage());
     expect(screen.getByRole("link", { name: /start learning free/i })).toHaveAttribute(
       "href",
-      "https://learn.alphonsoecosystem.app/auth",
+      "https://learn.alphonsoecosystem.app/auth?utm_source=site&utm_medium=button&utm_campaign=beta1",
     );
     expect(screen.getByLabelText(/email address/i)).toBeInTheDocument();
   });
@@ -31,19 +31,19 @@ describe("Download page", () => {
     expect(screen.getByText(/3 people already waiting/i)).toBeInTheDocument();
   });
 
-  it("does not push a TestFlight beta", async () => {
+  it("offers the iPhone beta through the one approved TestFlight link", async () => {
     render(await DownloadPage());
-    expect(screen.queryByRole("link", { name: /testflight/i })).not.toBeInTheDocument();
-    expect(screen.queryByText(/testflight|beta/i)).not.toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: /join the iphone beta/i })).toBeInTheDocument();
+    const cta = screen.getByRole("link", { name: /^join the iphone beta$/i });
+    expect(cta).toHaveAttribute("href", "https://testflight.apple.com/join/AVAgvB3y");
+    expect(cta).toHaveAttribute("target", "_blank");
   });
 
-  it("says the iPhone app is coming to the App Store and offers the launch email", async () => {
+  it("still offers the App Store launch email, and says Android is later", async () => {
     render(await DownloadPage());
-    expect(
-      screen.getByRole("heading", { name: /coming soon to the app store/i }),
-    ).toBeInTheDocument();
     expect(screen.getByText(/tell you the day it's available/i)).toBeInTheDocument();
     expect(screen.getByLabelText(/email address/i)).toBeInTheDocument();
+    expect(screen.getByText(/android is planned for later/i)).toBeInTheDocument();
   });
 
   it("does not show an App Store badge before launch", async () => {

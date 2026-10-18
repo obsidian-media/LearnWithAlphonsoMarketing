@@ -20,11 +20,11 @@ const nunito = Nunito({
 export const metadata: Metadata = {
   metadataBase: new URL("https://discover.alphonsoecosystem.app"),
   title: {
-    default: "Learn with Alphonso — English that actually sticks",
-    template: "%s — Learn with Alphonso",
+    default: "Learn With Alphonso: Learn English, French and Spanish",
+    template: "%s | Learn With Alphonso",
   },
   description:
-    "Bite-size English, French, and Spanish lessons, AI conversation practice, and gamified streaks — with Alphonso the llama as your guide.",
+    "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test (A1 to C1) and a daily review of the words you are about to forget. Free on the web, iPhone beta open.",
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -35,17 +35,25 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Learn with Alphonso — English that actually sticks",
+    title: "Learn With Alphonso: Learn English, French and Spanish",
     description:
-      "Bite-size English, French, and Spanish lessons, AI conversation practice, and gamified streaks.",
-    images: ["/og-image.png"],
+      "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test and a daily review. Free on the web, iPhone beta open.",
+    siteName: "Learn With Alphonso",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Alphonso the llama, mascot of Learn With Alphonso",
+      },
+    ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Learn with Alphonso — English that actually sticks",
+    title: "Learn With Alphonso: Learn English, French and Spanish",
     description:
-      "Bite-size English, French, and Spanish lessons, AI conversation practice, and gamified streaks.",
+      "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test and a daily review. Free on the web, iPhone beta open.",
     images: ["/og-image.png"],
   },
 };

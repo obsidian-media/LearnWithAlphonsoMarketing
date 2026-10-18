@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
 import { ContentSection } from "@/components/shared/ContentSection";
 import { FeatureGrid, type FeatureItem } from "@/components/shared/FeatureGrid";
 import { ConversationMockup } from "@/components/shared/ConversationMockup";
@@ -75,19 +74,14 @@ export default function AboutPage() {
               src="/mascot/hector-portrait.png"
               alt="Hector, wearing AR goggles, in a grand library"
               name="Hector"
-              tagline="The Pro AI tutor"
+              tagline="The AI tutor"
             />
           </div>
           <p className="max-w-xl text-ink-soft">
             Where Alphonso keeps you moving through lessons, Hector is the deep-focus tutor mode: a
             second AI conversation partner who remembers your CEFR level and what you&apos;re
-            working on between sessions. He&apos;s part of{" "}
-            <strong className="text-ink">Alphonso Pro</strong>, an optional subscription in the iOS
-            app. See{" "}
-            <Link href="/pricing" className="underline hover:text-coral">
-              Pricing
-            </Link>{" "}
-            for details.
+            working on between sessions. Like every AI feature, he only runs after you allow AI in
+            the app, and you can turn it off any time.
           </p>
         </div>
       </ContentSection>

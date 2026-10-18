@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CTAButton } from "../shared/CTAButton";
+import { START_LEARNING_URL } from "@/lib/links";
 
 const NAV_LINKS = [
   { href: "/features", label: "Features" },
@@ -38,7 +39,7 @@ export function Header() {
 
         <div className="hidden md:block">
           <CTAButton
-            href="https://learn.alphonsoecosystem.app/auth"
+            href={START_LEARNING_URL}
             external
             trackEvent="start_learning_click"
           >
@@ -77,7 +78,7 @@ export function Header() {
                 </Link>
               ))}
               <CTAButton
-                href="https://learn.alphonsoecosystem.app/auth"
+                href={START_LEARNING_URL}
                 external
                 trackEvent="start_learning_click"
               >

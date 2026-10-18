@@ -20,7 +20,7 @@ describe("Placement test page", () => {
     render(<PlacementTestPage />);
     expect(screen.getByRole("link", { name: /take the placement test free/i })).toHaveAttribute(
       "href",
-      "https://learn.alphonsoecosystem.app/auth",
+      "https://learn.alphonsoecosystem.app/auth?utm_source=site&utm_medium=button&utm_campaign=beta1",
     );
   });
 });
