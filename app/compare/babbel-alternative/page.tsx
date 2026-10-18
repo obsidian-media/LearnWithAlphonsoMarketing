@@ -11,12 +11,11 @@ export const metadata: Metadata = {
 };
 
 const ROWS: CompareRow[] = [
-  ["Free tier beyond the first lesson", "Yes — full curriculum", "No — subscription required"],
-  ["AI voice/text conversation practice", "Yes — 12 roleplay scenarios", "Limited"],
-  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Built into lesson flow"],
-  ["CEFR-aligned curriculum", "Yes, A1–C1", "Yes, A1–B2"],
-  ["Languages", "English, French, Spanish", "14"],
-  ["Price", "Free", "~$9–18/month subscription"],
+  ["Free to use", "Yes, the full curriculum", "Check Babbel's site"],
+  ["AI voice/text conversation practice", "Yes — 12 roleplay scenarios", "Check Babbel's site"],
+  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Check Babbel's site"],
+  ["CEFR-aligned curriculum", "Yes, A1–C1", "Check Babbel's site"],
+  ["Languages", "English, French, Spanish", "Check Babbel's site"],
 ];
 
 export default function BabbelAlternativePage() {
@@ -32,6 +31,10 @@ export default function BabbelAlternativePage() {
           want the whole thing free.
         </p>
         <CompareTable competitorName="Babbel" rows={ROWS} />
+        <p className="mt-4 text-sm text-ink-soft">
+          Competitor details are not verified here and change often. Check Babbel's site for its current
+          features and pricing.
+        </p>
         <div className="mt-10">
           <CTAButton
             href={START_LEARNING_URL}

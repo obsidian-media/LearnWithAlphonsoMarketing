@@ -11,12 +11,11 @@ export const metadata: Metadata = {
 };
 
 const ROWS: CompareRow[] = [
-  ["Bite-size daily lessons", "Yes", "Yes"],
-  ["AI voice/text conversation practice", "Yes — 12 roleplay scenarios", "Limited/newer feature"],
-  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Built into lesson flow"],
-  ["Gamification (streaks, leagues, teams)", "Yes", "Yes"],
-  ["Languages", "English, French, Spanish", "40+"],
-  ["Price", "Free", "Free, Super subscription"],
+  ["Bite-size daily lessons", "Yes", "Check Duolingo's site"],
+  ["AI voice/text conversation practice", "Yes — 12 roleplay scenarios", "Check Duolingo's site"],
+  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Check Duolingo's site"],
+  ["Gamification (streaks, leagues, teams)", "Yes", "Check Duolingo's site"],
+  ["Languages", "English, French, Spanish", "Check Duolingo's site"],
 ];
 
 export default function DuolingoAlternativePage() {
@@ -32,6 +31,10 @@ export default function DuolingoAlternativePage() {
           stick.
         </p>
         <CompareTable competitorName="Duolingo" rows={ROWS} />
+        <p className="mt-4 text-sm text-ink-soft">
+          Competitor details are not verified here and change often. Check Duolingo's site for its current
+          features and pricing.
+        </p>
         <div className="mt-10">
           <CTAButton
             href={START_LEARNING_URL}

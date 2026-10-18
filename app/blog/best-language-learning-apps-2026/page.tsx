@@ -20,24 +20,30 @@ export default function Page() {
         right question is which mechanic actually gets you talking, since vocabulary you can
         recognize but can&apos;t produce in a real sentence doesn&apos;t count as learned.
       </p>
+      <p>
+        <em>
+          Competitor details here are not verified and change often. Check each product&apos;s own
+          site for current features and pricing.
+        </em>
+      </p>
       <h2>If you want a habit-building daily streak</h2>
       <p>
-        Duolingo&apos;s strength is breadth (40+ languages) and a gamification loop that&apos;s
+        Duolingo&apos;s strength is breadth of languages and a gamification loop that&apos;s
         genuinely good at keeping you opening the app. Its weak spot has historically been
         production practice — recognizing an answer in a multiple-choice list is a different
         skill from producing a sentence unprompted.
       </p>
       <h2>If you want structured, textbook-style progression</h2>
       <p>
-        Babbel&apos;s CEFR-aligned courses (A1 through B2, 14 languages) read like a well-organized
-        textbook, with grammar explanations most gamified apps skip. The tradeoff is that the
-        curriculum sits behind a subscription after each course&apos;s first lesson.
+        Babbel&apos;s CEFR-aligned courses read like a well-organized
+        textbook, with grammar explanations most gamified apps skip. Check Babbel&apos;s site for
+        what is free and what needs a subscription.
       </p>
       <h2>If you want human feedback on your writing</h2>
       <p>
         Busuu&apos;s community-correction model — native speakers reviewing your written
         answers — is a genuinely different approach from AI grading, and can catch nuance an
-        algorithm misses. AI conversation practice is gated to its Premium Plus tier.
+        algorithm misses. Check Busuu&apos;s site for which features are free.
       </p>
       <h2>If you want free AI conversation practice plus real spaced repetition</h2>
       <p>

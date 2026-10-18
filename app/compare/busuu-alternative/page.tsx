@@ -11,12 +11,11 @@ export const metadata: Metadata = {
 };
 
 const ROWS: CompareRow[] = [
-  ["AI voice/text conversation practice", "Free — 12 roleplay scenarios", "Paid tier only"],
-  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Vocabulary trainer"],
-  ["Community-corrected exercises", "No — AI-graded instead", "Yes"],
-  ["CEFR-aligned curriculum", "Yes, A1–C1", "Yes"],
-  ["Languages", "English, French, Spanish", "14"],
-  ["Price", "Free", "Free tier + ~$6–8/month Premium"],
+  ["AI voice/text conversation practice", "Free — 12 roleplay scenarios", "Check Busuu's site"],
+  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Check Busuu's site"],
+  ["Community-corrected exercises", "No — AI-graded instead", "Check Busuu's site"],
+  ["CEFR-aligned curriculum", "Yes, A1–C1", "Check Busuu's site"],
+  ["Languages", "English, French, Spanish", "Check Busuu's site"],
 ];
 
 export default function BusuuAlternativePage() {
@@ -28,10 +27,13 @@ export default function BusuuAlternativePage() {
         </h1>
         <p className="mt-4 text-ink-soft">
           Busuu&apos;s community corrections are a genuinely different approach to feedback.
-          Here&apos;s how the two compare if what you want is AI conversation practice without a
-          Premium Plus upgrade.
+          Here&apos;s how the two compare if what you want is free AI conversation practice.
         </p>
         <CompareTable competitorName="Busuu" rows={ROWS} />
+        <p className="mt-4 text-sm text-ink-soft">
+          Competitor details are not verified here and change often. Check Busuu's site for its current
+          features and pricing.
+        </p>
         <div className="mt-10">
           <CTAButton
             href={START_LEARNING_URL}
