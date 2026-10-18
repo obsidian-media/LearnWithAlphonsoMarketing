@@ -2,9 +2,9 @@ import { PhoneFrame } from "./PhoneFrame";
 import { FlameIcon } from "./icons";
 
 const ROWS = [
-  { rank: 1, name: "Nadia", xp: 2140, tone: "from-amber to-coral" },
-  { rank: 2, name: "You", xp: 1980, tone: "from-royal to-royal-deep" },
-  { rank: 3, name: "Theo", xp: 1865, tone: "from-emerald-400 to-emerald-600" },
+  { rank: 1, name: "Nadia", xp: 2140, tone: "from-amber to-coral", text: "text-ink" },
+  { rank: 2, name: "You", xp: 1980, tone: "from-royal to-royal-deep", text: "text-white" },
+  { rank: 3, name: "Theo", xp: 1865, tone: "from-emerald-700 to-emerald-800", text: "text-white" },
 ];
 
 export function GamificationMockup() {
@@ -27,7 +27,7 @@ export function GamificationMockup() {
           >
             <span className="w-4 text-center text-xs font-bold text-ink-soft">{row.rank}</span>
             <span
-              className={`grid size-8 shrink-0 place-items-center rounded-full bg-gradient-to-br ${row.tone} text-xs font-bold text-white`}
+              className={`grid size-8 shrink-0 place-items-center rounded-full bg-gradient-to-br ${row.tone} ${row.text} text-xs font-bold`}
             >
               {row.name.slice(0, 1)}
             </span>

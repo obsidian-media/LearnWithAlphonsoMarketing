@@ -65,7 +65,7 @@ export function WaitlistForm() {
       <button
         type="submit"
         disabled={status === "loading"}
-        className="whitespace-nowrap rounded-full bg-gradient-to-r from-coral to-amber px-6 py-3 text-sm font-semibold text-white transition hover:opacity-90 disabled:opacity-60"
+        className="whitespace-nowrap rounded-full bg-gradient-to-r from-coral to-amber px-6 py-3 text-sm font-semibold text-ink transition hover:opacity-90 disabled:opacity-60"
       >
         {status === "loading" ? "Joining..." : "Notify me at launch"}
       </button>

@@ -44,7 +44,7 @@ export function CompeteMockup() {
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="grid size-12 place-items-center rounded-full bg-gradient-to-br from-amber to-coral text-sm font-bold text-white">
+          <span className="grid size-12 place-items-center rounded-full bg-gradient-to-br from-amber to-coral text-sm font-bold text-ink">
             Theo
           </span>
           <span className="text-xs font-semibold text-ink-soft">1,865 XP</span>

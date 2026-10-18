@@ -70,8 +70,8 @@ export function FeatureGrid({ items, headingLevel = "h3", tone = "cream" }: Feat
               transition={{ duration: 0.4 }}
               className={
                 featured
-                  ? "grid size-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-amber to-coral text-white"
-                  : "grid size-11 place-items-center rounded-2xl bg-gradient-to-br from-coral to-amber text-white"
+                  ? "grid size-14 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-amber to-coral text-ink"
+                  : "grid size-11 place-items-center rounded-2xl bg-gradient-to-br from-coral to-amber text-ink"
               }
             >
               {item.icon}
