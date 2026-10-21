@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { INSTAGRAM_URL } from "@/lib/links";
 
 const APP_URL = "https://learn.alphonsoecosystem.app";
 
@@ -11,6 +12,16 @@ export function Footer() {
             <p className="font-display text-lg font-semibold text-ink">Alphonso</p>
             <p className="mt-2 max-w-xs text-sm text-ink-soft">
               English, French, and Spanish, one bite-size lesson at a time. Built by Obsidian Media.
+            </p>
+            <p className="mt-3 text-sm">
+              <a
+                href={INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-ink hover:text-coral"
+              >
+                Follow @learnwithalphonso on Instagram
+              </a>
             </p>
           </div>
           <div>

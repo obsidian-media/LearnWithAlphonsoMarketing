@@ -10,3 +10,6 @@ export const START_LEARNING_URL =
  * app/claims-guard.test.ts fails the build if any other TestFlight link appears.
  */
 export const IPHONE_BETA_URL = "https://testflight.apple.com/join/AVAgvB3y";
+
+/** Official Instagram profile (footer "Follow" link). The only place this URL lives. */
+export const INSTAGRAM_URL = "https://www.instagram.com/learnwithalphonso/";
