@@ -7,11 +7,7 @@ export function WaitlistCount({ count }: WaitlistCountProps) {
   if (count === null) return null;
 
   return (
-    <p className="flex items-center gap-2 text-xs font-semibold text-white/70">
-      <span className="relative flex size-2">
-        <span className="absolute inline-flex size-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-        <span className="relative inline-flex size-2 rounded-full bg-emerald-400" />
-      </span>
+    <p className="waitlist-count">
       {count > 0 ? `${count} people already waiting` : "Be the first to join the waitlist"}
     </p>
   );

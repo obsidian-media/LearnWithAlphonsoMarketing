@@ -1,26 +1,31 @@
 import { render, screen } from "@testing-library/react";
 import { describe, it, expect, vi } from "vitest";
 import PlacementTestPage from "./page";
+import { APP_FACTS } from "@/lib/app-facts.generated";
+import { START_LEARNING_URL } from "@/lib/links";
 
 vi.mock("@vercel/analytics", () => ({ track: vi.fn() }));
 
 describe("Placement test page", () => {
-  it("explains the three real test formats and why speaking is excluded", () => {
+  it("states the test length the app's own picker produces", () => {
     render(<PlacementTestPage />);
-    expect(screen.getByRole("heading", { level: 1 })).toHaveTextContent(/15 questions/i);
-    expect(screen.getByRole("heading", { name: "Multiple choice", level: 3 })).toBeInTheDocument();
     expect(
-      screen.getByRole("heading", { name: "Listening comprehension", level: 3 }),
+      screen.getByText(new RegExp(`up to ${APP_FACTS.placement.maxQuestions} questions`)),
     ).toBeInTheDocument();
-    expect(screen.getByRole("heading", { name: "Written translation", level: 3 })).toBeInTheDocument();
+  });
+
+  it("lists one entry per question type the app draws from, and explains why speaking is left out", () => {
+    render(<PlacementTestPage />);
+    const list = screen.getByRole("list");
+    expect(list.querySelectorAll("li")).toHaveLength(APP_FACTS.placement.questionTypes.length);
     expect(screen.getByText(/microphone access/i)).toBeInTheDocument();
   });
 
-  it("links the primary CTA to the live signup flow", () => {
+  it("links the primary CTA to the live sign-up flow", () => {
     render(<PlacementTestPage />);
     expect(screen.getByRole("link", { name: /take the placement test free/i })).toHaveAttribute(
       "href",
-      "https://learn.alphonsoecosystem.app/auth?utm_source=site&utm_medium=button&utm_campaign=beta1",
+      START_LEARNING_URL,
     );
   });
 });

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { CompareTable, type CompareRow } from "@/components/shared/CompareTable";
 import { START_LEARNING_URL } from "@/lib/links";
+import { LEVEL_RANGE, SCENARIOS_TOTAL, courseList } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "A Busuu Alternative With Free AI Conversation Practice",
@@ -11,11 +12,15 @@ export const metadata: Metadata = {
 };
 
 const ROWS: CompareRow[] = [
-  ["AI voice/text conversation practice", "Free — 12 roleplay scenarios", "Check Busuu's site"],
-  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Check Busuu's site"],
+  [
+    "AI voice/text conversation practice",
+    `Free: ${SCENARIOS_TOTAL} roleplay scenarios`,
+    "Check Busuu's site",
+  ],
+  ["Spaced repetition review queue", "Yes: an SM-2-style algorithm", "Check Busuu's site"],
   ["Community-corrected exercises", "No — AI-graded instead", "Check Busuu's site"],
-  ["CEFR-aligned curriculum", "Yes, A1–C1", "Check Busuu's site"],
-  ["Languages", "English, French, Spanish", "Check Busuu's site"],
+  ["CEFR-aligned curriculum", `Yes, ${LEVEL_RANGE}`, "Check Busuu's site"],
+  ["Languages", courseList(), "Check Busuu's site"],
 ];
 
 export default function BusuuAlternativePage() {
@@ -31,15 +36,11 @@ export default function BusuuAlternativePage() {
         </p>
         <CompareTable competitorName="Busuu" rows={ROWS} />
         <p className="mt-4 text-sm text-ink-soft">
-          Competitor details are not verified here and change often. Check Busuu&apos;s site for its current
-          features and pricing.
+          Competitor details are not verified here and change often. Check Busuu&apos;s site for its
+          current features and pricing.
         </p>
         <div className="mt-10">
-          <CTAButton
-            href={START_LEARNING_URL}
-            external
-            trackEvent="start_learning_click"
-          >
+          <CTAButton href={START_LEARNING_URL} external trackEvent="start_learning_click">
             Try Learn with Alphonso free
           </CTAButton>
         </div>

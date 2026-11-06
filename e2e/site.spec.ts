@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
 
-const PAGES = ["/", "/features", "/pricing", "/download", "/about"];
+const PAGES = ["/", "/features", "/pricing", "/download", "/about", "/placement-test", "/blog/cefr-levels-explained", "/compare/duolingo-alternative"];
 
 for (const path of PAGES) {
   test(`${path || "/"} has no automatically-detectable accessibility violations`, async ({ page }) => {
@@ -45,4 +45,38 @@ test.describe("phone width", () => {
       expect(overflow).toBeLessThanOrEqual(0);
     });
   }
+});
+
+test.describe("dark mode (the site follows the visitor's setting)", () => {
+  test.use({ colorScheme: "dark" });
+  for (const path of ["/", "/pricing", "/download"]) {
+    test(`${path} has no accessibility violations in dark mode`, async ({ page }) => {
+      await page.goto(path);
+      const bg = await page.evaluate(() => getComputedStyle(document.querySelector(".site")!).backgroundColor);
+      expect(bg).not.toBe("rgb(251, 246, 236)");
+      const results = await new AxeBuilder({ page }).analyze();
+      expect(results.violations).toEqual([]);
+    });
+  }
+});
+
+test.describe("phone menu", () => {
+  test.use({ viewport: { width: 390, height: 844 } });
+  test("opens, lists the pages, and closes with Escape", async ({ page }) => {
+    await page.goto("/");
+    await page.getByRole("button", { name: "Open menu" }).click();
+    const menu = page.locator("#site-menu");
+    await expect(menu.getByRole("link", { name: "Pricing" })).toBeVisible();
+    await page.keyboard.press("Escape");
+    await expect(menu).toHaveCount(0);
+  });
+});
+
+test("llms.txt is built from the app facts", async ({ request }) => {
+  const res = await request.get("/llms.txt");
+  expect(res.ok()).toBe(true);
+  const text = await res.text();
+  const { APP_FACTS } = await import("../lib/app-facts.generated");
+  expect(text).toContain(`${APP_FACTS.totals.lessons.toLocaleString("en-US")} lessons`);
+  expect(text).toContain("https://testflight.apple.com/join/AVAgvB3y");
 });

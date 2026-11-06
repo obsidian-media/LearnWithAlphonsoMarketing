@@ -24,7 +24,10 @@ describe("WaitlistForm", () => {
     await user.click(screen.getByRole("button", { name: /notify me/i }));
 
     expect(await screen.findByRole("status")).toHaveTextContent(/you're on the list/i);
-    expect(fetch).toHaveBeenCalledWith("/api/waitlist", expect.objectContaining({ method: "POST" }));
+    expect(fetch).toHaveBeenCalledWith(
+      "/api/waitlist",
+      expect.objectContaining({ method: "POST" }),
+    );
   });
 
   it("shows a distinct message for an already-joined email", async () => {

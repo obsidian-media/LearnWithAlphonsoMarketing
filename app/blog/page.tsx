@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LEVEL_RANGE } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "Blog",
@@ -33,7 +34,7 @@ const POSTS = [
   {
     slug: "cefr-levels-explained",
     title: "CEFR levels explained: which one are you?",
-    description: "What A1 through C1 actually mean, and how a placement test figures out yours.",
+    description: `What ${LEVEL_RANGE.replace(" to ", " through ")} actually mean, and how a placement test figures out yours.`,
   },
 ];
 

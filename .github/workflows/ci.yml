@@ -1,0 +1,58 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Lint, types, unit and e2e tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npx tsc --noEmit
+      - run: npm test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
+        env:
+          CI: "1"
+
+  app-sync:
+    # The site's counts, tokens, icons, fonts and room paintings are generated from the app's source at the commit
+    # pinned in design/app-source.json. This regenerates them from a fresh checkout of that commit and fails if any
+    # committed file differs: a hand edit to a generated file, or a pin moved without regenerating.
+    name: Generated app facts match the pinned app commit
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: pin
+        run: |
+          echo "repo=$(jq -r .repo design/app-source.json)" >> "$GITHUB_OUTPUT"
+          echo "sha=$(jq -r .sha design/app-source.json)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.pin.outputs.repo }}
+          ref: ${{ steps.pin.outputs.sha }}
+          path: app-src
+          sparse-checkout: |
+            src/data
+            src/lib
+            src/styles
+            src/types
+            src/design
+            design
+            public/avatar
+            public/hector
+            public/fonts
+      - uses: oven-sh/setup-bun@v2
+      - run: bun scripts/sync-app.ts --app app-src --check

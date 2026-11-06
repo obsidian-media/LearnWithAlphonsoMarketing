@@ -1,0 +1,5 @@
+{
+  "$comment": "Which real app content the site quotes. scripts/sync-app.ts looks each one up in the app's source and fails if it is gone, so the site never shows a question or line the app does not have.",
+  "demoQuestion": { "course": "en", "id": "a2p2q18" },
+  "heroScenario": { "course": "en", "id": "coffee" }
+}

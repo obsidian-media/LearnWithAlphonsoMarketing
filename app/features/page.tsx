@@ -1,180 +1,149 @@
 import type { Metadata } from "next";
-import { ContentSection } from "@/components/shared/ContentSection";
-import { FeatureGrid } from "@/components/shared/FeatureGrid";
-import { LessonMockup } from "@/components/shared/LessonMockup";
-import { ConversationMockup } from "@/components/shared/ConversationMockup";
-import { GamificationMockup } from "@/components/shared/GamificationMockup";
-import { CompeteMockup } from "@/components/shared/CompeteMockup";
-import { COMPETE_FEATURES } from "@/components/shared/competeFeatures";
-import { ListenMockup } from "@/components/shared/ListenMockup";
-import { LISTEN_FEATURES } from "@/components/shared/listenFeatures";
+import Image from "next/image";
+import { Icon } from "@/components/site/Icon";
 import {
-  BookIcon,
-  MicIcon,
-  FlameIcon,
-  TrophyIcon,
-  UsersIcon,
-  PaletteIcon,
-  HeartIcon,
-} from "@/components/shared/icons";
+  APP_FACTS,
+  CAMPAIGNS_TOTAL,
+  COURSE_NOTE,
+  LEAGUE_RANGE,
+  LEVEL_RANGE,
+  SCENARIOS_TOTAL,
+  UNITS_TOTAL,
+  courseList,
+  formatCount,
+} from "@/lib/facts";
+import { LAUNCH } from "@/lib/launch-state";
+import { PRO } from "@/lib/pro-copy";
+import { ART, roomArt } from "@/lib/site-art";
 
 export const metadata: Metadata = {
   title: "Features",
-  description:
-    "Everything inside Learn with Alphonso: curriculum, AI conversation, spaced repetition, gamification, and team competition.",
+  description: `What is inside Learn With Alphonso: ${courseList()} from ${LEVEL_RANGE}, spoken practice with Alphonso, a daily review, listening and leagues. Hector is the only paid part.`,
 };
 
-const CURRICULUM = [
-  {
-    title: "5 CEFR levels",
-    description: "A1 through C1, so you always know where you stand.",
-    icon: <BookIcon className="size-5" />,
-  },
-  {
-    title: "Three courses",
-    description:
-      "609 English lessons, 611 French lessons and 610 Spanish lessons, all from A1 to C1.",
-    icon: <BookIcon className="size-5" />,
-  },
-  {
-    title: "5 question formats",
-    description:
-      "Multiple choice, fill-in-the-blank, listening comprehension, speaking practice and free-form translation, in all three courses.",
-    icon: <PaletteIcon className="size-5" />,
-  },
-  {
-    title: "Adaptive placement",
-    description: "A 15-question test starts you at the right level, not lesson one.",
-    icon: <TrophyIcon className="size-5" />,
-  },
-];
-
-const PRACTICE = [
-  {
-    title: "AI conversation practice",
-    description:
-      "12 roleplay scenarios in English, French and Spanish, by voice or text, with clarity feedback on your spoken answers and difficulty that adapts to your CEFR level. AI features run only after you allow them.",
-    icon: <MicIcon className="size-5" />,
-  },
-  {
-    title: "Spaced repetition review",
-    description:
-      "An SM-2-style queue resurfaces exactly what you got wrong, on a schedule built to make it stick.",
-    icon: <BookIcon className="size-5" />,
-  },
-  {
-    title: "In-lesson reinforcement",
-    description:
-      "Miss a question and a quick extra practice question on the same concept shows up right there — not just later in review.",
-    icon: <HeartIcon className="size-5" />,
-  },
-  {
-    title: "Weakness tracking",
-    description:
-      "See exactly what you're still working on versus what you've mastered, tracked automatically from lessons and conversations.",
-    icon: <TrophyIcon className="size-5" />,
-  },
-];
-
-const SOCIAL = [
-  {
-    title: "Gamification",
-    description: "XP, streaks, streak freezes and hearts. Hearts refill completely 30 minutes after you run out, and a perfect score on a lesson you haven't aced before earns one back.",
-    icon: <FlameIcon className="size-5" />,
-  },
-  {
-    title: "Leagues",
-    description: "Five league tiers, with global, friends and country leaderboards.",
-    icon: <TrophyIcon className="size-5" />,
-  },
-  {
-    title: "Friends",
-    description: "Invite friends, see their progress, and cheer each other on.",
-    icon: <UsersIcon className="size-5" />,
-  },
-  {
-    title: "Themes",
-    description: "Canopy, Meadow, Studio Ink or Manuscript: pick the look that fits you.",
-    icon: <PaletteIcon className="size-5" />,
-  },
-];
-
-const DIFFERENTIATORS = [
-  {
-    title: "Bite-size, not marathon",
-    description: "5-minute reps designed to fit into an actual day, not a study session.",
-  },
-  {
-    title: "Real conversation, not just flashcards",
-    description: "Voice or text roleplay with a language partner that adapts to you.",
-  },
-  {
-    title: "It knows what you're stuck on",
-    description: "Weakness tracking feeds review automatically — you don't have to notice it yourself.",
-  },
-  {
-    title: "Your account, your control",
-    description:
-      "Delete your account and export your data yourself, in-app, any time — plus block and report tools on every social feature.",
-  },
-];
+function Checks({ items }: { items: string[] }) {
+  return (
+    <ul>
+      {items.map((t) => (
+        <li key={t}>
+          <Icon name="check" />
+          {t}
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function FeaturesPage() {
+  const perCourse = APP_FACTS.courses
+    .map(
+      (c, i) =>
+        `${i === 0 ? `${c.label}${COURSE_NOTE[c.id] ? ` (${COURSE_NOTE[c.id]})` : ""}` : c.label} ${formatCount(c.units)}${i === 0 ? " units" : ""}`,
+    )
+    .join(", ");
   return (
     <main>
-      <ContentSection
-        eyebrow="Curriculum"
-        title="A real CEFR-leveled curriculum, not a gimmick"
-        level="h1"
-        visual={<LessonMockup />}
-      >
-        {/* Cards are h2 here, not the FeatureGrid default h3 -- this section's
-            own title is h1, so its direct children must be h2 to avoid
-            skipping a level (axe's heading-order rule). */}
-        <FeatureGrid items={CURRICULUM} headingLevel="h2" />
-      </ContentSection>
-      <ContentSection
-        eyebrow="Practice"
-        title="AI conversation practice and spaced repetition"
-        tone="royal"
-        visual={<ConversationMockup />}
-      >
-        <FeatureGrid items={PRACTICE} tone="royal" />
-      </ContentSection>
-      <ContentSection
-        eyebrow="Stay motivated"
-        title="Gamification that respects your time"
-        visual={<GamificationMockup />}
-      >
-        <FeatureGrid items={SOCIAL} />
-      </ContentSection>
-      <ContentSection
-        eyebrow="Compete"
-        title="Teams, duels, and a real season ladder"
-        tone="royal"
-        visual={<CompeteMockup />}
-        id="compete"
-      >
-        <FeatureGrid items={COMPETE_FEATURES} tone="royal" />
-      </ContentSection>
-      <ContentSection
-        eyebrow="Listen"
-        title="Language learning for your headphones"
-        visual={<ListenMockup />}
-        id="listen"
-      >
-        <FeatureGrid items={LISTEN_FEATURES} />
-      </ContentSection>
-      <ContentSection eyebrow="Why Alphonso" title="Not another flashcard app">
-        <div className="grid gap-8 sm:grid-cols-3">
-          {DIFFERENTIATORS.map((item) => (
-            <div key={item.title}>
-              <h3 className="font-display text-lg font-semibold text-ink">{item.title}</h3>
-              <p className="mt-1 text-sm text-ink-soft">{item.description}</p>
+      <section className="wrap ph-head">
+        <h1 className="d1" style={{ maxWidth: "13ch" }}>
+          What&apos;s inside the app.
+        </h1>
+        <p className="lede">
+          {courseList()}, from your first words to {LEVEL_RANGE.split(" to ")[1]}. Here is
+          everything you get, and what is free.
+        </p>
+      </section>
+      <section className="wrap ph-body">
+        <div className="chapters">
+          <article className="chapter wide rv">
+            <div className="pic">
+              <Image
+                src={roomArt("classroom")}
+                alt=""
+                fill
+                sizes="(min-width: 900px) 640px, 92vw"
+              />
+              <Image className="llama-s" src={ART.pose.talk} alt="" width={640} height={640} />
             </div>
-          ))}
+            <div className="txt">
+              <h2 className="d3">Learn</h2>
+              <p className="body">
+                {UNITS_TOTAL} units{LAUNCH.lessonRoomsLive ? ", each with its own room" : ""} and a
+                few minutes per lesson.
+              </p>
+              <Checks
+                items={[
+                  perCourse,
+                  "Listening, speaking, translating and fill-the-gap questions",
+                  `Adaptive level test, ${LEVEL_RANGE}`,
+                  "Hearts, XP and a daily streak",
+                ]}
+              />
+            </div>
+          </article>
+          <article className="chapter rv">
+            <div className="pic">
+              <Image
+                src={roomArt("restaurant")}
+                alt=""
+                fill
+                sizes="(min-width: 900px) 600px, 92vw"
+              />
+              <Image className="llama-s" src={ART.pose.happy} alt="" width={640} height={640} />
+            </div>
+            <div className="txt">
+              <h2 className="d3">Speak</h2>
+              <p className="body">Call Alphonso in painted scenes. Free.</p>
+              <Checks
+                items={[
+                  `${SCENARIOS_TOTAL} scenarios and ${CAMPAIGNS_TOTAL} story campaigns`,
+                  "Every reply judged, every slip saved for review",
+                ]}
+              />
+            </div>
+          </article>
+          <article className="chapter rv">
+            <div className="pic">
+              <Image src={roomArt("library")} alt="" fill sizes="(min-width: 900px) 600px, 92vw" />
+              <Image className="llama-s" src={ART.hector} alt="" width={1024} height={1024} />
+            </div>
+            <div className="txt">
+              <h2 className="d3">Talk freely with Hector</h2>
+              <p className="body">
+                No script, any topic. He remembers you between calls. {PRO.name}
+                {PRO.status ? `, ${PRO.status.toLowerCase()}.` : "."}
+              </p>
+              <Checks
+                items={["A long conversation every day", "Your level and weak spots, carried over"]}
+              />
+            </div>
+          </article>
+          <article className="chapter third rv">
+            <div className="txt">
+              <Icon name="words" className="cell-ico" />
+              <h2 className="d3">Remember</h2>
+              <p className="body">
+                A spaced review of the words and mistakes you are about to lose.
+              </p>
+            </div>
+          </article>
+          <article className="chapter third rv">
+            <div className="txt">
+              <Icon name="speaker" className="cell-ico" />
+              <h2 className="d3">Listen</h2>
+              <p className="body">
+                Audio episodes with transcripts and a player that remembers where you were.
+              </p>
+            </div>
+          </article>
+          <article className="chapter third rv">
+            <div className="txt">
+              <Icon name="league" className="cell-ico" />
+              <h2 className="d3">Keep going</h2>
+              <p className="body">Leagues from {LEAGUE_RANGE}, teams, duels and a study buddy.</p>
+            </div>
+          </article>
         </div>
-      </ContentSection>
+      </section>
     </main>
   );
 }

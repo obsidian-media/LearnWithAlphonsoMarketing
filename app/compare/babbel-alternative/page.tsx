@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { CompareTable, type CompareRow } from "@/components/shared/CompareTable";
 import { START_LEARNING_URL } from "@/lib/links";
+import { LEVEL_RANGE, SCENARIOS_TOTAL, courseList } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "A Babbel Alternative With a Real Free Tier",
@@ -12,10 +13,14 @@ export const metadata: Metadata = {
 
 const ROWS: CompareRow[] = [
   ["Free to use", "Yes, the full curriculum", "Check Babbel's site"],
-  ["AI voice/text conversation practice", "Yes — 12 roleplay scenarios", "Check Babbel's site"],
-  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Check Babbel's site"],
-  ["CEFR-aligned curriculum", "Yes, A1–C1", "Check Babbel's site"],
-  ["Languages", "English, French, Spanish", "Check Babbel's site"],
+  [
+    "AI voice/text conversation practice",
+    `Yes: ${SCENARIOS_TOTAL} roleplay scenarios`,
+    "Check Babbel's site",
+  ],
+  ["Spaced repetition review queue", "Yes: an SM-2-style algorithm", "Check Babbel's site"],
+  ["CEFR-aligned curriculum", `Yes, ${LEVEL_RANGE}`, "Check Babbel's site"],
+  ["Languages", courseList(), "Check Babbel's site"],
 ];
 
 export default function BabbelAlternativePage() {
@@ -32,15 +37,11 @@ export default function BabbelAlternativePage() {
         </p>
         <CompareTable competitorName="Babbel" rows={ROWS} />
         <p className="mt-4 text-sm text-ink-soft">
-          Competitor details are not verified here and change often. Check Babbel&apos;s site for its current
-          features and pricing.
+          Competitor details are not verified here and change often. Check Babbel&apos;s site for
+          its current features and pricing.
         </p>
         <div className="mt-10">
-          <CTAButton
-            href={START_LEARNING_URL}
-            external
-            trackEvent="start_learning_click"
-          >
+          <CTAButton href={START_LEARNING_URL} external trackEvent="start_learning_click">
             Try Learn with Alphonso free
           </CTAButton>
         </div>

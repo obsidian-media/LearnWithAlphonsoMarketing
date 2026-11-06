@@ -29,7 +29,7 @@ describe("CTAButton", () => {
         Notify me
       </CTAButton>,
     );
-    expect(screen.getByRole("link", { name: /notify me/i }).className).toContain("border");
+    expect(screen.getByRole("link", { name: /notify me/i }).className).toContain("btn-quiet");
   });
 
   it("applies inverted secondary styling for use on dark backgrounds", () => {
@@ -39,8 +39,7 @@ describe("CTAButton", () => {
       </CTAButton>,
     );
     const link = screen.getByRole("link", { name: /join the beta/i });
-    expect(link.className).toContain("text-white");
-    expect(link.className).toContain("border-white/30");
+    expect(link.className).toContain("btn-ghost");
   });
 
   it("fires the named analytics event on click when trackEvent is set", async () => {

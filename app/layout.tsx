@@ -1,30 +1,18 @@
 import type { Metadata } from "next";
-import { Fraunces, Nunito } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { Header } from "@/components/layout/Header";
-import { Footer } from "@/components/layout/Footer";
-
-const fraunces = Fraunces({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-fraunces",
-});
-
-const nunito = Nunito({
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "800"],
-  variable: "--font-nunito",
-});
+import { SiteHeader } from "@/components/site/SiteHeader";
+import { SiteFooter } from "@/components/site/SiteFooter";
+import { IconSprite } from "@/components/site/Icon";
+import { LESSONS_TOTAL, LEVEL_RANGE, courseList } from "@/lib/facts";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://discover.alphonsoecosystem.app"),
   title: {
-    default: "Learn With Alphonso: Learn English, French and Spanish",
+    default: `Learn With Alphonso: Learn ${courseList()}`,
     template: "%s | Learn With Alphonso",
   },
-  description:
-    "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test (A1 to C1) and a daily review of the words you are about to forget. Free on the web, iPhone beta open.",
+  description: `Learn ${courseList("or")} in a few minutes a day. ${LESSONS_TOTAL} short lessons, a free level test (${LEVEL_RANGE}) and a daily review of the words you are about to forget. Free on the web, iPhone beta open.`,
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -35,25 +23,23 @@ export const metadata: Metadata = {
   },
   manifest: "/site.webmanifest",
   openGraph: {
-    title: "Learn With Alphonso: Learn English, French and Spanish",
-    description:
-      "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test and a daily review. Free on the web, iPhone beta open.",
+    title: `Learn With Alphonso: Learn ${courseList()}`,
+    description: `Learn ${courseList("or")} in a few minutes a day. ${LESSONS_TOTAL} short lessons, a free level test and a daily review. Free on the web, iPhone beta open.`,
     siteName: "Learn With Alphonso",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Alphonso the llama, mascot of Learn With Alphonso",
+        alt: "Alphonso the llama, in a navy and gold robe and blue sunglasses, in his study",
       },
     ],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Learn With Alphonso: Learn English, French and Spanish",
-    description:
-      "Learn English, French or Spanish in a few minutes a day. 1,800+ short lessons, a free level test and a daily review. Free on the web, iPhone beta open.",
+    title: `Learn With Alphonso: Learn ${courseList()}`,
+    description: `Learn ${courseList("or")} in a few minutes a day. ${LESSONS_TOTAL} short lessons, a free level test and a daily review. Free on the web, iPhone beta open.`,
     images: ["/og-image.png"],
   },
 };
@@ -88,8 +74,9 @@ function jsonLdScript(data: object) {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${nunito.variable}`}>
+    <html lang="en">
       <body>
+        <IconSprite />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLdScript(ORGANIZATION_JSON_LD) }}
@@ -98,9 +85,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: jsonLdScript(SOFTWARE_APPLICATION_JSON_LD) }}
         />
-        <Header />
-        {children}
-        <Footer />
+        <div className="site">
+          <SiteHeader />
+          {children}
+          <SiteFooter />
+        </div>
         <Analytics />
       </body>
     </html>

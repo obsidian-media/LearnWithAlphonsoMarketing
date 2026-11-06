@@ -1,0 +1,41 @@
+name: App drift
+
+# Weekly: would the site change if it were re-synced with the app's latest main? A red run means the app's counts,
+# rooms, tokens or icons moved; run `bun scripts/sync-app.ts --app <checkout> --pin` in a PR to take them.
+# Not a merge gate: it reports, it does not block other work.
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: pin
+        run: echo "repo=$(jq -r .repo design/app-source.json)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.pin.outputs.repo }}
+          path: app-src
+          sparse-checkout: |
+            src/data
+            src/lib
+            src/styles
+            src/types
+            src/design
+            design
+            public/avatar
+            public/hector
+            public/fonts
+      - uses: oven-sh/setup-bun@v2
+      - run: bun scripts/sync-app.ts --app app-src --pin
+      - name: Report what would change
+        run: |
+          git status --short -- lib app components public
+          git diff --stat -- lib app components public
+          git diff --quiet -- lib app components public
