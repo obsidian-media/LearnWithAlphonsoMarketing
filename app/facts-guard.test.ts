@@ -56,7 +56,10 @@ const SOURCES = SCAN.flatMap(files).map((f) => ({
 }));
 
 export function findHandTypedFacts(text: string): string[] {
-  return [...text.matchAll(FACT_NUMBER), ...text.matchAll(LEVEL_RANGE)].map((m) => m[0]);
+  // Whitespace is normalised so a phrase a formatter wraps across lines still matches its ALLOWED entry.
+  return [...text.matchAll(FACT_NUMBER), ...text.matchAll(LEVEL_RANGE)].map((m) =>
+    m[0].replace(/\s+/g, " "),
+  );
 }
 
 describe("facts guard: no hand-typed app facts", () => {
