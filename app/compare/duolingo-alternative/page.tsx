@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CTAButton } from "@/components/shared/CTAButton";
 import { CompareTable, type CompareRow } from "@/components/shared/CompareTable";
 import { START_LEARNING_URL } from "@/lib/links";
+import { SCENARIOS_TOTAL, courseList } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "A Duolingo Alternative With Real Conversation Practice",
@@ -12,10 +13,14 @@ export const metadata: Metadata = {
 
 const ROWS: CompareRow[] = [
   ["Bite-size daily lessons", "Yes", "Check Duolingo's site"],
-  ["AI voice/text conversation practice", "Yes — 12 roleplay scenarios", "Check Duolingo's site"],
-  ["Spaced repetition review queue", "Yes — SM-2-style algorithm", "Check Duolingo's site"],
+  [
+    "AI voice/text conversation practice",
+    `Yes: ${SCENARIOS_TOTAL} roleplay scenarios`,
+    "Check Duolingo's site",
+  ],
+  ["Spaced repetition review queue", "Yes: an SM-2-style algorithm", "Check Duolingo's site"],
   ["Gamification (streaks, leagues, teams)", "Yes", "Check Duolingo's site"],
-  ["Languages", "English, French, Spanish", "Check Duolingo's site"],
+  ["Languages", courseList(), "Check Duolingo's site"],
 ];
 
 export default function DuolingoAlternativePage() {
@@ -32,15 +37,11 @@ export default function DuolingoAlternativePage() {
         </p>
         <CompareTable competitorName="Duolingo" rows={ROWS} />
         <p className="mt-4 text-sm text-ink-soft">
-          Competitor details are not verified here and change often. Check Duolingo&apos;s site for its current
-          features and pricing.
+          Competitor details are not verified here and change often. Check Duolingo&apos;s site for
+          its current features and pricing.
         </p>
         <div className="mt-10">
-          <CTAButton
-            href={START_LEARNING_URL}
-            external
-            trackEvent="start_learning_click"
-          >
+          <CTAButton href={START_LEARNING_URL} external trackEvent="start_learning_click">
             Try Learn with Alphonso free
           </CTAButton>
         </div>

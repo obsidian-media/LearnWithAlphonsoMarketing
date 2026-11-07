@@ -1,98 +1,118 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { ContentSection } from "@/components/shared/ContentSection";
-import { FeatureGrid, type FeatureItem } from "@/components/shared/FeatureGrid";
-import { ConversationMockup } from "@/components/shared/ConversationMockup";
-import { MascotPortraitCard } from "@/components/shared/MascotPortraitCard";
-import { FlameIcon, MicIcon, TrophyIcon, BookIcon } from "@/components/shared/icons";
+import { Icon } from "@/components/site/Icon";
+import type { IconName } from "@/components/shared/icon-sprite.generated";
+import { LEVEL_RANGE, SCENARIOS_TOTAL, courseList } from "@/lib/facts";
+import { ART, roomArt } from "@/lib/site-art";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "The story behind Alphonso and Learn with Alphonso.",
+  description: "The story behind Alphonso, Hector and Learn With Alphonso.",
 };
 
-// Real, shipped specifics, same facts used elsewhere on the site (pricing
-// page, stats band) -- not restated as marketing fluff.
-const VALUES: FeatureItem[] = [
+const VALUES: { icon: IconName; title: string; text: string }[] = [
   {
-    icon: <FlameIcon className="size-6" />,
+    icon: "flame",
     title: "Small, honest reps",
-    description:
-      "Short daily lessons beat marathon cram sessions. Spaced repetition brings words back right before you'd forget them, not on a fixed schedule.",
+    text: "Short daily lessons beat marathon cram sessions. Spaced repetition brings words back right before you would forget them.",
   },
   {
-    icon: <MicIcon className="size-6" />,
+    icon: "mic",
     title: "Real conversations, not flashcards",
-    description:
-      "Twelve AI-guided scenarios adapt to your CEFR level, from ordering coffee to handling a job interview.",
+    text: `${SCENARIOS_TOTAL} Practice scenarios adapt to your level, from ordering coffee to a job interview.`,
   },
   {
-    icon: <TrophyIcon className="size-6" />,
+    icon: "league",
     title: "Game mechanics that respect your time",
-    description:
-      "Streaks, hearts, and leagues built to keep you consistent — not to manipulate you into opening the app.",
+    text: "Streaks, hearts and leagues built to keep you consistent, not to pull you back into the app.",
   },
   {
-    icon: <BookIcon className="size-6" />,
-    title: "Three languages, five levels",
-    description: "English, French, and Spanish, each spanning all five CEFR levels from A1 to C1.",
+    icon: "book",
+    title: `${courseList()}, ${LEVEL_RANGE}`,
+    text: "Every course runs the whole way, from your first words to confident conversation.",
   },
 ];
+
+function Portrait({ room, art, alt }: { room: string; art: string; alt: string }) {
+  return (
+    <div className="h-art">
+      <div className="arch">
+        <Image
+          className="room"
+          src={roomArt(room)}
+          alt=""
+          fill
+          sizes="(min-width: 900px) 470px, 92vw"
+        />
+      </div>
+      <Image
+        className="llama"
+        src={art}
+        alt={alt}
+        width={1024}
+        height={1024}
+        sizes="(min-width: 900px) 460px, 90vw"
+      />
+    </div>
+  );
+}
 
 export default function AboutPage() {
   return (
     <main>
-      <ContentSection eyebrow="Our story" title="Meet Alphonso" level="h1">
-        <div className="flex flex-col items-start gap-8 sm:flex-row sm:items-center">
-          <div className="relative mx-auto shrink-0 sm:mx-0">
-            <div
-              aria-hidden="true"
-              className="absolute -inset-6 -z-10 rounded-full bg-gradient-to-br from-coral/30 to-amber/20 blur-2xl"
-            />
-            <Image
-              src="/mascot/alphonso-cutout.png"
-              alt="Alphonso the llama"
-              width={180}
-              height={300}
-              className="h-auto w-[180px]"
-            />
+      <section className="sec">
+        <div className="wrap hector-grid">
+          <Portrait
+            room="room-light"
+            art={ART.alphonso}
+            alt="Alphonso, a llama in a navy and gold robe and blue sunglasses"
+          />
+          <div className="stack rv">
+            <h1 className="d1">Meet Alphonso.</h1>
+            <p className="lede">
+              A confident llama in a navy and gold robe who believes a language sticks best in
+              small, honest reps. Learn With Alphonso is built by Obsidian Media around that idea:
+              short lessons, real spaced repetition, and game mechanics that respect your time.
+            </p>
           </div>
-          <p className="max-w-xl text-ink-soft">
-            Alphonso is a confident, sunglasses-wearing llama who believes a language sticks best in
-            small, honest reps — not marathon cram sessions. Learn with Alphonso is built by{" "}
-            <strong className="text-ink">Obsidian Media</strong> around that idea: bite-size
-            lessons, real spaced repetition, and gamification that respects your time instead of
-            manipulating it.
-          </p>
         </div>
-      </ContentSection>
-
-      <ContentSection eyebrow="Meet the cast" title="And then there's Hector">
-        <div className="flex flex-col items-start gap-8 sm:flex-row sm:items-center">
-          <div className="w-[200px] shrink-0">
-            <MascotPortraitCard
-              src="/mascot/hector-portrait.png"
-              alt="Hector, wearing AR goggles, in a grand library"
-              name="Hector"
-              tagline="The AI tutor"
-            />
+      </section>
+      <section className="sec hector on-hero">
+        <div className="wrap hector-grid">
+          <Portrait
+            room="library"
+            art={ART.hector}
+            alt="Hector, a llama in a green jacket with goggles and a headset"
+          />
+          <div className="stack rv">
+            <h2 className="d2">And then there&apos;s Hector.</h2>
+            <p className="lede">
+              Where Alphonso keeps you moving through lessons, Hector is the AI voice tutor for free
+              conversation. He remembers your level and what you are working on between calls. Like
+              every AI feature, he only runs after you allow AI in the app, and you can turn it off
+              any time.
+            </p>
           </div>
-          <p className="max-w-xl text-ink-soft">
-            Where Alphonso keeps you moving through lessons, Hector is the deep-focus tutor mode: a
-            second AI conversation partner who remembers your CEFR level and what you&apos;re
-            working on between sessions. Like every AI feature, he only runs after you allow AI in
-            the app, and you can turn it off any time.
-          </p>
         </div>
-      </ContentSection>
-
-      <ContentSection
-        eyebrow="What we believe"
-        title="Built on a few rules we don't break"
-        visual={<ConversationMockup />}
-      >
-        <FeatureGrid items={VALUES} />
-      </ContentSection>
+      </section>
+      <section className="sec">
+        <div className="wrap lesson-grid">
+          <h2 className="d2 rv">Built on a few rules we don&apos;t break.</h2>
+          <ul className="feat-list rv">
+            {VALUES.map((v) => (
+              <li key={v.title}>
+                <span className="ico">
+                  <Icon name={v.icon} />
+                </span>
+                <div>
+                  <b>{v.title}</b>
+                  <span className="body">{v.text}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
     </main>
   );
 }

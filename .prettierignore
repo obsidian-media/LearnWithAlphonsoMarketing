@@ -1,0 +1,2 @@
+# Written by scripts/sync-app.ts; CI checks them byte for byte, so formatters must leave them alone.
+*.generated.*

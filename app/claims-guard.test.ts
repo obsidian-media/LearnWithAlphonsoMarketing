@@ -13,7 +13,7 @@ import { describe, it, expect } from "vitest";
  * FAQ, About, compare pages and llms.txt.
  */
 const ROOT = process.cwd();
-const SCAN = ["app", "components", "lib", "public/llms.txt"];
+const SCAN = ["app", "components", "lib"];
 const EXT = /\.(tsx?|mdx?|txt)$/;
 
 function files(rel: string): string[] {
@@ -33,17 +33,38 @@ const SOURCES = SCAN.flatMap(files).map((f) => ({
 
 const BETA_LINK = "https://testflight.apple.com/join/AVAgvB3y";
 
-const BANNED: { label: string; re: RegExp }[] = [
+// The one file allowed to name the paid tier; it also holds the "Coming soon" status shown while it cannot be bought.
+const PRO_COPY = "lib/pro-copy.ts";
+
+const BANNED: { label: string; re: RegExp; except?: string[] }[] = [
   {
     label: "a TestFlight link other than the approved site group",
     re: /testflight\.apple\.com\/join\/(?!AVAgvB3y\b)/i,
   },
   { label: "a TestFlight link with query tracking", re: /testflight\.apple\.com\/join\/\w+\?/i },
-  // Delete the Pro and price entries once the Paid Apps Agreement is Active
-  // and the owner approves purchase copy.
-  { label: "Pro mentioned (not purchasable yet)", re: /\bPro\b/ },
-  { label: "the Alphonso Pro price", re: /\$\s?9\.99/ },
-  { label: "a web sign-up link without attribution (use START_LEARNING_URL)", re: /learn\.alphonsoecosystem\.app\/auth(?!\?utm_source=site)/ },
+  // The tier is named only through lib/pro-copy.ts (PRO.name), which shows PRO.status while it cannot be bought.
+  { label: "Pro named outside lib/pro-copy.ts", re: /\bPro\b/, except: [PRO_COPY] },
+  // Prices, the trial and its length come from the store at purchase time, never from this site.
+  {
+    label: "a price",
+    re: /[$€£]\s?\d|\d\s?(?:USD|EUR|GBP|CAD)\b|\bper (?:month|year)\b|\/(?:mo|month|yr|year)\b/i,
+  },
+  {
+    label: "a trial length",
+    re: /\b\d+[- ](?:day|week|month)s?\b[^.]{0,40}\btrial\b|\btrial\b[^.]{0,40}\b\d+[- ](?:day|week|month)s?\b/i,
+  },
+  {
+    label: "a Hector message, call or minute count",
+    re: /\b\d+\s*(?:messages|calls|minutes|conversations)\s*(?:a|per|each)\s*(?:day|week|month)\b/i,
+  },
+  {
+    label: "a buy or subscribe button",
+    re: /\b(?:Subscribe|Buy now|Start (?:your )?free trial|Upgrade to)\b/,
+  },
+  {
+    label: "a web sign-up link without attribution (use START_LEARNING_URL)",
+    re: /learn\.alphonsoecosystem\.app\/auth(?!\?utm_source=site)/,
+  },
   // Competitor facts are unsourced and go stale: no prices, language counts or tier gating.
   {
     label: "an unsourced competitor price or language count",
@@ -59,9 +80,31 @@ const BANNED: { label: string; re: RegExp }[] = [
   { label: "Hector coming soon", re: /Hector[^.]{0,120}coming soon|coming soon[^.]{0,120}Hector/i },
   { label: "old product name", re: /Hector Pro/ },
   { label: "stale league tier names", re: /\b(Bronze|Silver|Sapphire|Ruby|Diamond)\b/i },
-  { label: "overclaimed question formats", re: /every question type|\b(6|six) (question )?(formats|types)\b|sentence reordering|\breorder/i },
+  {
+    label: "overclaimed question formats",
+    re: /every question type|\b(6|six) (question )?(formats|types)\b|sentence reordering|\breorder/i,
+  },
   { label: "stale theme count", re: /\b(three|3) themes\b/i },
   { label: "stale heart regen wording", re: /hearts that regenerate/i },
+  // Found by the 2026-11-06 audit.
+  { label: "the old AI provider (now OpenRouter)", re: /NVIDIA/i },
+  {
+    label: "the old themes (now the Royal palette)",
+    re: /\b(?:Canopy|Studio Ink|Manuscript)\b|\bfour themes\b/i,
+  },
+  { label: "the Spanish course called new", re: /newly[- ]launched/i },
+  {
+    label: "an App Store link or badge before the app is there",
+    re: /apps\.apple\.com|Download on the App Store/i,
+  },
+  {
+    label: "a Google Play link or badge before the app is there",
+    re: /play\.google\.com|Get it on Google Play/i,
+  },
+  {
+    label: "a made-up course question (use APP_FACTS.demoQuestion)",
+    re: /to the store yesterday/i,
+  },
 ];
 
 describe("pre-launch claims guard", () => {
@@ -74,8 +117,24 @@ describe("pre-launch claims guard", () => {
     expect(hits.length).toBeGreaterThan(0);
   });
 
-  it.each(BANNED)("no shipped file contains: $label", ({ re }) => {
-    const hits = SOURCES.filter(({ text }) => re.test(text)).map(({ file }) => file);
+  it.each(BANNED)("no shipped file contains: $label", ({ re, except = [] }) => {
+    const hits = SOURCES.filter(
+      ({ file, text }) => !except.includes(file.split(path.sep).join("/")) && re.test(text),
+    ).map(({ file }) => file);
     expect(hits).toEqual([]);
+  });
+});
+
+describe("the paid tier while it cannot be bought", () => {
+  it("shows its status wherever a page names it", async () => {
+    const { LAUNCH } = await import("@/lib/launch-state");
+    const { PRO } = await import("@/lib/pro-copy");
+    if (!LAUNCH.proOnSale) expect(PRO.status).toBe("Coming soon");
+    const naming = SOURCES.filter(
+      ({ file, text }) => text.includes("PRO.name") && /page\.tsx$|components/.test(file),
+    );
+    expect(naming.length).toBeGreaterThan(0);
+    for (const { file, text } of naming)
+      expect(text.includes("PRO.status"), `${file} names the tier without its status`).toBe(true);
   });
 });

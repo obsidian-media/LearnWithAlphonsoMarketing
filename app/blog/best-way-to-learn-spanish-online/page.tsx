@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleLayout } from "@/components/shared/ArticleLayout";
+import { LEVEL_RANGE, SCENARIOS_TOTAL } from "@/lib/facts";
 
 export const metadata: Metadata = {
   title: "The Best Way to Learn Spanish Online in 2026",
@@ -17,8 +18,8 @@ export default function Page() {
     >
       <p>
         Spanish has more dialect variation than most learners realize going in, and it shapes what
-        &quot;learning Spanish&quot; should actually mean for you. A course built around Latin American
-        Spanish — <em>tú</em>/<em>usted</em>/<em>ustedes</em>, no <em>vosotros</em> or{" "}
+        &quot;learning Spanish&quot; should actually mean for you. A course built around Latin
+        American Spanish — <em>tú</em>/<em>usted</em>/<em>ustedes</em>, no <em>vosotros</em> or{" "}
         <em>vos</em> — teaches you the forms most Spanish speakers worldwide actually use day to
         day.
       </p>
@@ -32,14 +33,15 @@ export default function Page() {
       </p>
       <h2>Why production beats recognition</h2>
       <p>
-        Multiple-choice recognition and producing a sentence yourself are different skills.
-        Learn with Alphonso&apos;s Spanish course pairs its A1–C1 curriculum with speaking
-        questions (graded tolerantly against speech-to-text, so &quot;es doctora&quot; and &quot;ella es
-        doctora&quot; both count) and free-form translation questions that accept any of several correct
-        wordings — plus 12 AI-guided conversation scenarios for open-ended practice.
+        Multiple-choice recognition and producing a sentence yourself are different skills. Learn
+        with Alphonso&apos;s Spanish course pairs its {LEVEL_RANGE} curriculum with speaking
+        questions (graded tolerantly against speech-to-text, so &quot;es doctora&quot; and
+        &quot;ella es doctora&quot; both count) and free-form translation questions that accept any
+        of several correct wordings — plus {SCENARIOS_TOTAL} AI-guided conversation scenarios for
+        open-ended practice.
       </p>
       <p>
-        Not sure where to start? A free 15-question{" "}
+        Not sure where to start? A free adaptive{" "}
         <Link href="/placement-test" className="text-coral-deep underline">
           placement test
         </Link>{" "}
@@ -47,7 +49,7 @@ export default function Page() {
         <Link href="/blog/cefr-levels-explained" className="text-coral-deep underline">
           CEFR level breakdown
         </Link>{" "}
-        if you&apos;re not sure what A1 through C1 actually mean.
+        if you&apos;re not sure what {LEVEL_RANGE.replace(" to ", " through ")} actually mean.
       </p>
     </ArticleLayout>
   );

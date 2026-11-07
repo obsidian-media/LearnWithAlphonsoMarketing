@@ -41,36 +41,32 @@ export function WaitlistForm() {
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         role="status"
-        className="rounded-2xl bg-royal/10 px-5 py-4 text-sm font-semibold text-royal"
+        className="verdict ok"
       >
-        🦙 {message}
+        {message}
       </motion.p>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row" noValidate>
-      <label htmlFor="waitlist-email" className="sr-only">
-        Email address
-      </label>
-      <input
-        id="waitlist-email"
-        type="email"
-        required
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
-        placeholder="you@example.com"
-        className="w-full rounded-full border border-ink/10 bg-white px-5 py-3 text-sm text-ink placeholder:text-ink-soft/60 focus:outline-none focus:ring-2 focus:ring-coral"
-      />
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="whitespace-nowrap rounded-full bg-gradient-to-r from-coral to-amber px-6 py-3 text-sm font-semibold text-ink transition hover:opacity-90 disabled:opacity-60"
-      >
-        {status === "loading" ? "Joining..." : "Notify me at launch"}
-      </button>
+    <form onSubmit={handleSubmit} className="field" noValidate>
+      <label htmlFor="waitlist-email">Email address</label>
+      <div className="row">
+        <input
+          id="waitlist-email"
+          type="email"
+          required
+          autoComplete="email"
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+          placeholder="you@example.com"
+        />
+        <button type="submit" disabled={status === "loading"} className="btn btn-quiet">
+          {status === "loading" ? "Joining..." : "Notify me"}
+        </button>
+      </div>
       {status === "error" && (
-        <p role="alert" className="text-sm text-red-600">
+        <p role="alert" className="field-error">
           {message}
         </p>
       )}
